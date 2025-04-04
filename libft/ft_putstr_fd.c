@@ -1,14 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd.c                                               :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 01:34:31 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/04 23:07:21 by zmetreve         ###   ########.fr       */
+/*   Created: 2024/10/03 15:21:12 by zmetreve          #+#    #+#             */
+/*   Updated: 2024/10/04 06:33:10 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
+void	ft_putstr_fd(char *s, int fd)
+{
+	while (*s)
+		write (fd, s++, 1);
+}
+/*
+int	main(void)
+{
+	int	fd;
+
+	fd = open("new.txt", O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	ft_putstr_fd("hello world", fd);
+	close(fd);
+}*/
