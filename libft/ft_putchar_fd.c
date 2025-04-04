@@ -1,14 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cd.c                                               :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 01:34:31 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/04 23:07:21 by zmetreve         ###   ########.fr       */
+/*   Created: 2024/10/03 14:20:25 by zmetreve          #+#    #+#             */
+/*   Updated: 2024/10/04 06:34:56 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
+void	ft_putchar_fd(char c, int fd)
+{
+	write (fd, &c, 1);
+}
+/*
+#include <fcntl.h>
+
+int	main(void)
+{
+	int fd;
+
+	fd = open("open.txt", O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	ft_putchar_fd('O', fd);
+	close(fd);
+}*/
