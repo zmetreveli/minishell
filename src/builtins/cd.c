@@ -3,14 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:34:31 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/05 01:37:11 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/07 15:02:35 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static void	update_wds(t_data *data, char *wd)
+{
+	set_env_var(data, "OLDPWD", get_env_var_value(data->env, "PWD"));
+	set_env_var(data, "PWD", wd);
+	if (data->old_working_dir)
+	{
+		free_ptr(data->old_working_dir);
+		data->old_working_dir = ft_strdup(data->working_dir);
+	}
+	if (data->working_dir)
+	{
+		free_ptr(data->working_dir);
+		data->working_dir = ft_strdup(wd);
+	}
+	free_ptr(wd);
+}
+
+static bool chdir_errno_mod(char *path)
+{
+	if (errno == ESTALE)
+		errno = ENOENT;
+	errmsg_cmd("cd", path, strerror(errno), errno);
+	return (false);
+}
+
+static bool change_dir(t_data *data, char *path)
+{
+	char	*tmp;
+	char	*ret;
+	char	*cwd[PATH_MAX];
+
+	ret = NULL;
+	if (chdir(path) != 0)
+		return (chdir_errno_mod(path));
+	ret = getcwd(cwd, PATH_MAX);
+	if (!ret)
+	{
+		errmsg_cmd("cd: error retriving current directory", 
+			"getcwd: cannot access parent directories",
+			strerror(errno), errno);
+		ret = ft_strjoin(data->working_dir, "/");
+		tmp = ret;
+		ret = ft_strjoin(tmp, path);
+		free_ptr(tmp);
+	}
+	else
+		ret = ft_strdup(cwd);
+	update_wds(data, ret);
+	return (true);
+}
 
 int	cd_builtin(t_data *data, char **args)
 {
