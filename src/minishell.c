@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/04/04 01:41:46 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/08 14:59:53 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ int	main(int ac, char **av, char **env)
 	else
 		minishell_noninteractive(&data, av[2]);
 	exit_shell(&data, g_last_exit_code);
+	// test
 	return (0);
 }
