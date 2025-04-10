@@ -6,11 +6,15 @@
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:24:12 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/08 09:04:30 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/10 23:54:59 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+//! Si tengo directorio guardado desde un "cd" anterior imprimo directamente
+//? Si no, pido al path actual de sistema
+//* Si getcwd falla muestro error
 
 int	pwd_builtin(t_data *data, char **args)
 {

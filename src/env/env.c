@@ -5,25 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 22:25:11 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/10 19:27:52 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/04/10 11:27:53 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/04/10 11:34:01 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-// Imprime todas las variables de entorno en la salida estándar (STDOUT). (solo permito env)
+// Cuenta cuántas variables de entorno originales hay.
+//	Devuelve el número de variables de entorno.
 
-int	env_builtin(t_data *data, char **args)
+int env_var_count(char *env)
 {
-	int	i;
+    int i;
 
-	if (args && args[1])
-		return (errmsg_cmd("env", NULL, "too many arguments", 2));
-	i = 0;
-	if (!data->env)
-		return (EXIT_FAILURE);
-	while (data->env[i])
-		ft_putendl_fd(data->env[i++], STDOUT_FILENO);
-	return (EXIT_SUCCESS);
+    i = 0;
+    while (env && env[i])
+        i++;
+    return (i);
 }
+

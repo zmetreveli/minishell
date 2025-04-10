@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.c                                              :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 22:25:11 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/10 19:27:52 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/04/10 22:54:50 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/04/10 22:57:26 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libc.h"
 
-// Imprime todas las variables de entorno en la salida estándar (STDOUT). (solo permito env)
-
-int	env_builtin(t_data *data, char **args)
+int		ft_isspace(int c)
 {
-	int	i;
-
-	if (args && args[1])
-		return (errmsg_cmd("env", NULL, "too many arguments", 2));
-	i = 0;
-	if (!data->env)
-		return (EXIT_FAILURE);
-	while (data->env[i])
-		ft_putendl_fd(data->env[i++], STDOUT_FILENO);
-	return (EXIT_SUCCESS);
+	c = (unsigned char)c;
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
+		return (1);
+	return (0);
 }

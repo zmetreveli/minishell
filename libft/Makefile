@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zmetreve <zmetreve@student.42barcelon      +#+  +:+       +#+         #
+#    By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 10:49:25 by zmetreve          #+#    #+#              #
-#    Updated: 2024/10/04 08:55:39 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/04/10 22:59:14 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = \
+      ft_isspace.c\
       ft_isalpha.c \
       ft_isdigit.c \
       ft_isalnum.c \
