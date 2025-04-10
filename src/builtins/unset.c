@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:25:42 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/10 23:59:15 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/11 00:22:23 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // *	Procesa cada argumento como un posible nombre de variable de entorno.
 // *	Si el nombre es válido y existe en el entorno, se elimina.
 // *	Los identificadores inválidos o que contienen '=' generan un mensaje de error.
-// *	Devuelve 0 si todas las variables fueron eliminadas correctamente,
+// ?	Devuelve 0 si todas las variables fueron eliminadas correctamente,
 // *	o 1 si ocurrió algún error.
 
 
