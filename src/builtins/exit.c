@@ -6,13 +6,13 @@
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:26:12 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/10 23:28:58 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:39:13 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-//! controlamos si el numero esta dentro del rango
+//Todo/  controlamos si el numero esta dentro del rango
 
 static bool    chek_out_of_range(int neg, unsigned long long num, bool *error)
 {
@@ -56,7 +56,7 @@ static int ft_atoi_long(const char *str, bool *error)
 //	Si la entrada no es válida (no numérica, vacía o fuera de rango),
 //?	establece el flag de error en true.
 //todo	Devuelve el código de salida módulo 256 (como hacen las shells).
-//! Si el argumento es NULL, devuelve el último código de salida.
+//? Si el argumento es NULL, devuelve el último código de salida.
 
 static int get_exit_code(char *arg, bool *error)
 {

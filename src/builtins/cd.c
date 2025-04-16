@@ -6,15 +6,15 @@
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:34:31 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/10 12:40:17 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:41:06 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-// Actualiza las variables PWD y OLDPWD en el entorno después de un cambio de directorio.
-// Se guarda una copia de las rutas internamente para usarlas en caso de que
-// las variables de entorno hayan sido eliminadas.
+//! Actualiza las variables PWD y OLDPWD en el entorno después de un cambio de directorio.
+//* Se guarda una copia de las rutas internamente para usarlas en caso de que
+//? las variables de entorno hayan sido eliminadas.
 
 static void	update_wds(t_data *data, char *wd)
 {
@@ -33,7 +33,7 @@ static void	update_wds(t_data *data, char *wd)
 	free_ptr(wd);
 }
 
-// si falla la ruta o se borra devolvemos mensaje msads claro "como en bash"
+//todo / si falla la ruta o se borra devolvemos mensaje msads claro "como en bash"
 
 static bool chdir_errno_mod(char *path)
 {
@@ -43,7 +43,7 @@ static bool chdir_errno_mod(char *path)
 	return (false);
 }
 
-// cambio directoryo y acualiso pwd con la nueva direccion
+//todo / cambio directoryo y acualiso pwd con la nueva direccion
 
 static bool change_dir(t_data *data, char *path)
 {
@@ -71,7 +71,7 @@ static bool change_dir(t_data *data, char *path)
 	return (true);
 }
 
-// cambio directorio con cd O voy al HOME si es solo cd sin la ruta
+//todo / cambio directorio con cd O voy al HOME si es solo cd sin la ruta
 
 int	cd_builtin(t_data *data, char **args)
 {

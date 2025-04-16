@@ -6,13 +6,13 @@
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:25:11 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/10 19:27:52 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:39:36 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-// Imprime todas las variables de entorno en la salida estándar (STDOUT). (solo permito env)
+//todo/ Imprime todas las variables de entorno en la salida estándar (STDOUT). (solo permito env)
 
 int	env_builtin(t_data *data, char **args)
 {
