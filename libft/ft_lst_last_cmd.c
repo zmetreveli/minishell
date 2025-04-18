@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lst_last_cmd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 07:44:26 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/17 17:46:14 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/04/17 17:54:48 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/04/17 19:19:20 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_command	*ft_lst_last_cmd(t_command *cmd)
 {
-	t_list	*tmp;
-
-	if (!*lst)
-		*lst = new;
-	else
-	{
-		tmp = ft_lstlast(*lst);
-		tmp->next = new;
-		new->prev = tmp;
-	}
+	while (cmd->next != NULL)
+		cmd = cmd->next;
+	return (cmd);
 }

@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lst_new_cmd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 07:44:26 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/17 17:46:14 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/04/17 17:58:02 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/04/17 19:21:39 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_command	*ft_lst_new_cmd(bool value)
 {
-	t_list	*tmp;
+	t_command	*new_node;
 
-	if (!*lst)
-		*lst = new;
-	else
-	{
-		tmp = ft_lstlast(*lst);
-		tmp->next = new;
-		new->prev = tmp;
-	}
+	new_node = (t_command *)malloc(sizeof(t_command));
+	if (!(new_node))
+		return (NULL);
+	ft_memset(new_node, 0, sizeof(t_command));
+	new_node->pipe_output = value;
+	initialize_cmd(&new_node);
+	return (new_node);
 }
