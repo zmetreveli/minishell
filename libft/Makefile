@@ -6,7 +6,7 @@
 #    By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 10:49:25 by zmetreve          #+#    #+#              #
-#    Updated: 2025/04/18 19:41:50 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/04/18 19:49:42 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,13 +61,6 @@ SRCS_BONUS = \
       ft_lstclear.c \
       ft_lstiter.c \
       ft_lstmap.c \
-      ft_lst_add_back_cmd.c \
-      ft_lst_clear_cmd.c \
-      ft_lst_delone_cmd.c \
-      ft_lst_last_cmd.c \
-      ft_lst_new_cmd.c \
-      free_io.c \
-      free_str_tab.c \
 
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)

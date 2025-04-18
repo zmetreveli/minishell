@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 18:23:58 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/18 19:40:34 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/18 19:51:36 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <stdio.h>
 # include <stddef.h>
 # include <fcntl.h>
-#include <stdbool.h>
-typedef struct s_io_fds t_io_fds;
 // # include <bsd/string.h>
 
 typedef struct s_list
@@ -29,18 +27,6 @@ typedef struct s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 }					t_list;
-
-typedef struct s_command
-{
-	char				*command;
-	char				*path;
-	char				**args;
-	bool				pipe_output;
-	int					*pipe_fd;
-	t_io_fds			*io_fds;
-	struct s_command	*next;
-	struct s_command	*prev;
-}	t_command;
 
 //LIBC FUNCTIONS//
 
@@ -92,17 +78,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
-
-//* LST t_command struct
-void	ft_lst_add_back_cmd(t_command **alst, t_command *new_node);
-void	ft_lst_clear_cmd(t_command **lst, void (*del)(void *));
-void	ft_lst_delone_cmd(t_command *lst, void (*del)(void *));
-t_command	*ft_lst_last_cmd(t_command *cmd);
-t_command	*ft_lst_new_cmd(bool value);
-
-//? Extra Function
-
-void	free_io(t_io_fds *io);
-void	free_str_tab(char **tab);
 
 #endif
