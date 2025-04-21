@@ -6,16 +6,16 @@
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 11:27:53 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/16 12:20:10 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/18 20:23:01 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "execution.h"
 
 //! Cuenta cuántas variables de entorno originales hay.
 //?	Devuelve el número de variables de entorno.
 
-int env_var_count(char *env)
+int env_var_count(char **env)
 {
     int i;
 
