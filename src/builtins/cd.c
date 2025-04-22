@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:34:31 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/16 11:41:06 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:08:36 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "builtins.h"
 
 //! Actualiza las variables PWD y OLDPWD en el entorno después de un cambio de directorio.
 //* Se guarda una copia de las rutas internamente para usarlas en caso de que

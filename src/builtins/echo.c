@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:34:59 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/16 11:40:19 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:08:26 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "builtins.h"
 
 //todo/  verifico si tengo flag -n o alguna combinacion posible valido si NO devuelvo false 
 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:24:12 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/16 11:36:56 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:07:27 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "builtins.h"
 
 //! Si tengo directorio guardado desde un "cd" anterior imprimo directamente
 //* Si no, pido al path actual de sistema

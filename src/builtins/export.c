@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:35:20 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/16 11:37:31 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:07:41 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "builtins.h"
 
 //!	Separa el argumento dado en una pareja clave-valor usando el carácter '='.
 //*	Se utiliza para definir una variable de entorno.

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:26:12 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/16 11:39:13 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:07:50 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "builtins.h"
 
 //Todo/  controlamos si el numero esta dentro del rango
 
