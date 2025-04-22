@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:25:11 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/16 11:39:36 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:08:03 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "builtins.h"
 
 //todo/ Imprime todas las variables de entorno en la salida estándar (STDOUT). (solo permito env)
 
