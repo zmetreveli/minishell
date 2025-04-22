@@ -2,7 +2,9 @@
 
 parse(char **args)
 {
-	
+//	ft_split();	
+// We get a string from readline
+// We get a string from readline
 }
 
 int	main(int ac, char **av)
