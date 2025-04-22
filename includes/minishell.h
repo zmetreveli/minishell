@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minishell.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/04 01:26:30 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/04/22 15:52:16 by jbusom-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
@@ -15,6 +27,20 @@
 #include <termios.h>
 #include <termcap.h>
 #include "libft.h"
+
+extern int	g_last_exit_code;
+
+typedef struct s_command
+{
+	char				*command;
+	char				*path;
+	char				**args;
+	bool				pipe_output;
+	int					*pipe_fd;
+	t_io_fds			*io_fds;
+	struct s_command	*next;
+	struct s_command	*prev;
+}	t_command;
 
 typedef enum e_token_type
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon      +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 07:44:26 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/03/31 08:27:36 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/17 17:46:14 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
