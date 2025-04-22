@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:26:30 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/18 20:30:13 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/22 15:52:16 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 #include <sys/ioctl.h>
 #include <termios.h>
 #include <termcap.h>
-
 #include "libft.h"
 
 extern int	g_last_exit_code;
@@ -43,4 +42,16 @@ typedef struct s_command
 	struct s_command	*prev;
 }	t_command;
 
+typedef enum e_token_type
+{
+	WORD,
+	STRING,
+	PIPE,
+	QUOTE,
+	DQUOTE,
+	REDIR_IN,
+	REDIR_OUT,
+	APPEND,
+	HEREDOC
+}   t_token_type;
 #endif
