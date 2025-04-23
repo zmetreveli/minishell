@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+         #
+#    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/04/08 09:38:02 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/04/23 12:50:40 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = minishell
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = minishell.c \
+SRC = src/minishell.c \
 	  src/builtins/cd.c \
 	  src/builtins/echo.c \
 	  src/builtins/env.c \
@@ -23,19 +23,35 @@ SRC = minishell.c \
 	  src/builtins/export.c \
 	  src/builtins/pwd.c \
 	  src/builtins/unset.c \
-	  src/executor/exec.c \
-	  src/executor/redir.c \
-	  src/parser/lexer.c \
-	  src/parser/parcer.c
+	  src/env/env_utils.c \
+	  src/env/env.c \
+	  src/parser/args_echo_utils.c \
+	  src/parser/args_echo.c \
+	  src/parser/args.c \
+	  src/parser/commands.c \
+	  src/parser/heredoc_utils.c \
+	  src/parser/heredoc.c \
+	  src/parser/parce_word.c \
+	  src/parser/parcer.c \
+	  src/parser/parser_append.c \
+	  src/parser/parse_input.c \
+	  src/parser/parser.c \
+	  src/parser/test.c \
+	  src/parser/trunc.c \
+	  src/redirection/redirection.c \
 
 OBJ = $(SRC:.c=.o)
 
-
+LIBFT_DIR = ../libft
+LIBFT = ../libft/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+%.o: %.c includes/builtins.h includes/parser.h includes/redirection.h includes/env.h $(LIBFT) Makefile \
+	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
+
+$(NAME): $(OBJ) $(SRC) Makefile includes/builtins.h includes/parser.h includes/redirection.h includes/env.h \
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 clean:
 	rm -f $(OBJ)

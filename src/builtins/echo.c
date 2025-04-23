@@ -6,11 +6,18 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:34:59 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/22 18:08:26 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/23 12:57:47 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "../includes/env.h"
+#include "../includes/bultins.h"
+#include "../includes/minishell.h"
+#include "../includes/execution.h"
+#include "../includes/parser.h"
+#include "../includes/rediction.h"
+#include "../libft/libft.h"
+
 
 //todo/  verifico si tengo flag -n o alguna combinacion posible valido si NO devuelvo false 
 

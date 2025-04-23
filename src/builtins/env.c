@@ -6,11 +6,18 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:25:11 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/22 18:08:03 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/23 12:57:55 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "../includes/env.h"
+#include "../includes/bultins.h"
+#include "../includes/minishell.h"
+#include "../includes/execution.h"
+#include "../includes/parser.h"
+#include "../includes/rediction.h"
+#include "../libft/libft.h"
+
 
 //todo/ Imprime todas las variables de entorno en la salida estándar (STDOUT). (solo permito env)
 

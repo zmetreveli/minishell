@@ -6,9 +6,17 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 21:01:47 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/21 23:11:00 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/23 13:54:51 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/env.h"
+#include "../includes/bultins.h"
+#include "../includes/minishell.h"
+#include "../includes/execution.h"
+#include "../includes/parser.h"
+#include "../includes/rediction.h"
+#include "../libft/libft.h"
 
 //* aseguramos que todos los comandos tengan un array de argumentos.
 

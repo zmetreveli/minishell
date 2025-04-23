@@ -1,5 +1,3 @@
-#include "minishell.h"
-
 parse(char **args)
 {
 //	ft_split();	
