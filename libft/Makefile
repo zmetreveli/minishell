@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+         #
+#    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 10:49:25 by zmetreve          #+#    #+#              #
-#    Updated: 2025/04/18 19:49:42 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/04/24 22:31:07 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS = \
       ft_tolower.c \
       ft_strchr.c \
       ft_strrchr.c \
+      ft_strcmp.c \
       ft_strncmp.c \
       ft_memchr.c \
       ft_memcmp.c \

@@ -6,7 +6,7 @@
 #    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/04/23 12:50:40 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/04/24 21:26:33 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC = src/minishell.c \
 	  src/parser/test.c \
 	  src/parser/trunc.c \
 	  src/redirection/redirection.c \
+	  src/clean_and_exit/exit.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -47,10 +48,10 @@ LIBFT = ../libft/libft.a
 
 all: $(NAME)
 
-%.o: %.c includes/builtins.h includes/parser.h includes/redirection.h includes/env.h $(LIBFT) Makefile \
+%.o: %.c includes/builtins.h includes/parser.h includes/redirection.h includes/env.h includes/clean_and_exit.h $(LIBFT) Makefile \
 	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
 
-$(NAME): $(OBJ) $(SRC) Makefile includes/builtins.h includes/parser.h includes/redirection.h includes/env.h \
+$(NAME): $(OBJ) $(SRC) Makefile includes/builtins.h includes/parser.h includes/redirection.h includes/clean_and_exit.h includes/env.h \
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 clean:
