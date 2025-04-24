@@ -6,12 +6,19 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/04/23 12:54:24 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:41:20 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
-
+#include "../includes/structs.h"
+#include "../includes/env.h"
+#include "../includes/bultins.h"
+#include "../includes/minishell.h"
+#include "../includes/execution.h"
+#include "../includes/parser.h"
+#include "../includes/rediction.h"
+#include "../libft/libft.h"
 void	minishell_noninteractive(t_data *data, char *arg)
 {
 	char	**user_inputs;

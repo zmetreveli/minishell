@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 		return (1);
 	}
 }
-*/
+
 
 int	main(void)
 {
@@ -55,3 +55,4 @@ int	main(void)
 	//else
 	//	return (printf("wrong arguments dummy"), 1);
 }
+*/

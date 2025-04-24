@@ -6,13 +6,15 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 12:31:55 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/23 12:48:40 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:21:56 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/structs.h"
 #include "../includes/env.h"
 #include "../includes/bultins.h"
 #include "../includes/minishell.h"
+#include "../includes/struct.h"
 #include "../includes/execution.h"
 #include "../includes/parser.h"
 #include "../includes/rediction.h"

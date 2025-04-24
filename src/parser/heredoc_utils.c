@@ -6,10 +6,11 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 23:38:05 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/23 13:54:58 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:25:07 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/structs.h"
 #include "../includes/env.h"
 #include "../includes/bultins.h"
 #include "../includes/minishell.h"
