@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/04/24 22:16:40 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/25 16:18:10 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int	main(int ac, char **av, char **env)
 	t_data	data;
 
 	ft_memset(&data, 0, sizeof(t_data));
+	data->env = env;
 	if (!start_check(&data, ac, av) || !init_data(&data, env))
 		exit_shell(NULL, EXIT_FAILURE);
 	if (data.interactive)

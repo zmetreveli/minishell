@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:25:11 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 19:22:42 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/25 16:22:43 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 #include "../libft/libft.h"
 
 
-//todo/ Imprime todas las variables de entorno en la salida estándar (STDOUT). (solo permito env)
+//todo/ Has to print every env until last NULL
+//todo/ To add a new ENV copy ENV and put it in own ENV and then proceed to add the next ENV var
+//todo/ For shell vars, same concept, if export finds a var in shell vars, then delete that one and move it into ENV var...
 
 int	env_builtin(t_data *data, char **args)
 {
