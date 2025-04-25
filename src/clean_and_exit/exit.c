@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.c                                              :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 22:25:11 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 19:22:42 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/04/24 21:12:33 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/04/24 21:53:39 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/clean_and_exit.h"
 #include "../includes/structs.h"
 #include "../includes/env.h"
 #include "../includes/bultins.h"
@@ -20,18 +21,13 @@
 #include "../libft/libft.h"
 
 
-//todo/ Imprime todas las variables de entorno en la salida estándar (STDOUT). (solo permito env)
-
-int	env_builtin(t_data *data, char **args)
+void	exit_shell(t_data *data, int exno)
 {
-	int	i;
-
-	if (args && args[1])
-		return (errmsg_cmd("env", NULL, "too many arguments", 2));
-	i = 0;
-	if (!data->env)
-		return (EXIT_FAILURE);
-	while (data->env[i])
-		ft_putendl_fd(data->env[i++], STDOUT_FILENO);
-	return (EXIT_SUCCESS);
+	if (data)
+	{
+		if (data->cmd && data->cmd->io_fds)
+			close_fds(data->cmd, true);
+		free_data(data, true);
+	}
+	exit(exno);
 }

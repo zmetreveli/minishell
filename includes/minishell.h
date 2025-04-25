@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:26:30 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/05 00:32:23 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:39:44 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,19 @@
 #include <sys/ioctl.h>
 #include <termios.h>
 #include <termcap.h>
+# include <stdbool.h>
 
-#include "libft.h"
+//! inc internos
+
+#include "../includes/structs.h"
+#include "../includes/env.h"
+#include "../includes/bultins.h"
+// !#include "../includes/minishell.h"
+#include "../includes/execution.h"
+#include "../includes/parser.h"
+//#include "../includes/rediction.h"
+#include "../libft/libft.h"
+
+extern int	g_last_exit_code;
 
 #endif

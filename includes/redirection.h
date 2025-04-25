@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   redirection.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 07:44:26 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/17 17:46:14 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/04/22 18:26:44 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/04/22 18:27:54 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef REDIRECTION_H
+# define REDIRECTION_H
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*tmp;
 
-	if (!*lst)
-		*lst = new;
-	else
-	{
-		tmp = ft_lstlast(*lst);
-		tmp->next = new;
-		new->prev = tmp;
-	}
-}
+
+
+#endif

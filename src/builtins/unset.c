@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:25:42 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/08 09:05:24 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:23:12 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/structs.h"
+#include "../includes/env.h"
+#include "../includes/bultins.h"
+#include "../includes/minishell.h"
+#include "../includes/execution.h"
+#include "../includes/parser.h"
+#include "../includes/rediction.h"
+#include "../libft/libft.h"
+
+// !	Procesa cada argumento como un posible nombre de variable de entorno.
+// *	Si el nombre es válido y existe en el entorno, se elimina.
+// *	Los identificadores inválidos o que contienen '=' generan un mensaje de error.
+// *	Devuelve 0 si todas las variables fueron eliminadas correctamente,
+// ?	o 1 si ocurrió algún error.
+
 
 int	unset_builtin(t_data *data, char **args)
 {
