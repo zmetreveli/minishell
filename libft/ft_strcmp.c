@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.h                                              :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 13:57:21 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/22 15:52:37 by jbusom-r         ###   ########.fr       */
+/*   Created: 2025/04/24 22:28:17 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/04/24 22:28:22 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_H
-# define ENV_H
+#include "libft.h"
 
-//! env_utils
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
 
-bool	set_env_var(t_data *data, char *key, char *value);
-bool	remove_env_var(t_data *data, int idx);
-
-//! env
-
-bool	is_valid_env_var_key(char *var);
-char	*get_env_var_value(char **env, char *var);
-int	get_env_var_index(char **env, char *var);
-int env_var_count(char **env);
-
-#endif
+	i = 0;
+	if (!s1 || !s2)
+		return (1);
+	while (s1[i] && s2[i] && (s1[i] == s2[i]))
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

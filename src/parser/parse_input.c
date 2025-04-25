@@ -6,9 +6,18 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 23:43:26 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/21 23:51:25 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/24 22:08:14 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/structs.h"
+#include "../includes/env.h"
+#include "../includes/bultins.h"
+#include "../includes/minishell.h"
+#include "../includes/execution.h"
+#include "../includes/parser.h"
+#include "../includes/rediction.h"
+#include "../libft/libft.h"
 
 static void	open_infile(t_io_fds *io, char *file, char *original_filename)
 {

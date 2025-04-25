@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.h                                              :+:      :+:    :+:   */
+/*   clean_and_exit.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 13:57:21 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/22 15:52:37 by jbusom-r         ###   ########.fr       */
+/*   Created: 2025/04/24 21:19:23 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/04/24 21:53:07 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_H
-# define ENV_H
+#ifndef CLEAN_AND_EXIT_H
+# define CLEAN_AND_EXIT_H
 
-//! env_utils
+# include <stdbool.h>
 
-bool	set_env_var(t_data *data, char *key, char *value);
-bool	remove_env_var(t_data *data, int idx);
+typedef struct s_data t_data;
 
-//! env
+//! exit.c
 
-bool	is_valid_env_var_key(char *var);
-char	*get_env_var_value(char **env, char *var);
-int	get_env_var_index(char **env, char *var);
-int env_var_count(char **env);
+void    exit_shell(t_data *data, int exno);
+
+//! free.c
+
+void	free_str_tab(char **tab);
+void	free_data(t_data *data, bool clear_history);
 
 #endif

@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <readline/readline.h>
-#include <readline/history.h>
 /*
 int	main(int ac, char **av)
 {
@@ -40,7 +35,7 @@ int	main(int ac, char **av)
 		return (1);
 	}
 }
-*/
+
 
 int	main(void)
 {
@@ -60,3 +55,4 @@ int	main(void)
 	//else
 	//	return (printf("wrong arguments dummy"), 1);
 }
+*/

@@ -1,28 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.h                                              :+:      :+:    :+:   */
+/*   redirection.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 13:57:21 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/22 15:52:37 by jbusom-r         ###   ########.fr       */
+/*   Created: 2025/04/22 18:26:08 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/04/24 19:39:08 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_H
-# define ENV_H
+//#include "redirection.h"
 
-//! env_utils
-
-bool	set_env_var(t_data *data, char *key, char *value);
-bool	remove_env_var(t_data *data, int idx);
-
-//! env
-
-bool	is_valid_env_var_key(char *var);
-char	*get_env_var_value(char **env, char *var);
-int	get_env_var_index(char **env, char *var);
-int env_var_count(char **env);
-
-#endif

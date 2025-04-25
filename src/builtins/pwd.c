@@ -6,11 +6,18 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:24:12 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/22 18:07:27 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:23:05 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "../includes/structs.h"
+#include "../includes/env.h"
+#include "../includes/bultins.h"
+#include "../includes/minishell.h"
+#include "../includes/execution.h"
+#include "../includes/parser.h"
+#include "../includes/rediction.h"
+#include "../libft/libft.h"
 
 //! Si tengo directorio guardado desde un "cd" anterior imprimo directamente
 //* Si no, pido al path actual de sistema

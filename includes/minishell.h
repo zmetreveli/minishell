@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:26:30 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/22 15:52:16 by jbusom-r         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:39:44 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,32 +26,19 @@
 #include <sys/ioctl.h>
 #include <termios.h>
 #include <termcap.h>
-#include "libft.h"
+# include <stdbool.h>
+
+//! inc internos
+
+#include "../includes/structs.h"
+#include "../includes/env.h"
+#include "../includes/bultins.h"
+// !#include "../includes/minishell.h"
+#include "../includes/execution.h"
+#include "../includes/parser.h"
+//#include "../includes/rediction.h"
+#include "../libft/libft.h"
 
 extern int	g_last_exit_code;
 
-typedef struct s_command
-{
-	char				*command;
-	char				*path;
-	char				**args;
-	bool				pipe_output;
-	int					*pipe_fd;
-	t_io_fds			*io_fds;
-	struct s_command	*next;
-	struct s_command	*prev;
-}	t_command;
-
-typedef enum e_token_type
-{
-	WORD,
-	STRING,
-	PIPE,
-	QUOTE,
-	DQUOTE,
-	REDIR_IN,
-	REDIR_OUT,
-	APPEND,
-	HEREDOC
-}   t_token_type;
 #endif
