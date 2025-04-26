@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 12:31:55 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 21:49:54 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/26 23:53:01 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static char	**realloc_env_vars(t_data *data, int size)
 }
 
 //!	Agrega una variable de entorno con la clave dada correspondiente al valor dado. Si la clave ya existe en las variables de entorno, el valor será sobrescrito. Si no, se crea una nueva entrada.
+//* export
 //?	Devuelve 1 si la operación fue exitosa, o 0 en caso de error.
 
 bool	set_env_var(t_data *data, char *key, char *value)
@@ -75,6 +76,7 @@ bool	set_env_var(t_data *data, char *key, char *value)
 }
 
 //! Elimina la variable de entorno en la posición indicada del array env Desplaza el resto de las variables una posición hacia atrás y realoca memoria.
+//* unset
 //?	Devuelve true si tuvo éxito, o false si el índice es inválido o falla la reasignación de memoria.
 
 bool	remove_env_var(t_data *data, int idx)

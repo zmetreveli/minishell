@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:42:31 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 21:49:46 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/26 22:54:58 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,14 @@ void	free_data(t_data *data, bool clear_history)
 		if (data && data->env)
 			free_str_tab(data->env);
 		rl_clear_history();
+	}
+}
+
+void	free_ptr(void *ptr)
+{
+	if (ptr != NULL)
+	{
+		free(ptr);
+		ptr = NULL;
 	}
 }
