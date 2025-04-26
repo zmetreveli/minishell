@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:35:20 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 19:22:59 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/26 13:24:04 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,17 @@ static char     **get_key_value_pair(char *arg)
 	tmp[1] = ft_substr(eq_pos, 1, ft_strlen(eq_pos));
 	tmp[2] = NULL;
 	return (tmp);
+}
+
+// Very rough sketch:
+void print_export(char **envp_copy)
+{
+	int	i;
+
+	i = 0;
+    // -----> sort_env_strings(envp_copy) This should sort the env variables by alphanumeric values!;
+	while (envp_copy[i])
+        printf("declare -x %s\n", envp_copy[i++]);
 }
 
 //! Agrega o actualiza variables de entorno a partir de los argumentos dados.
