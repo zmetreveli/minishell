@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:35:20 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/26 13:24:04 by jbusom-r         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:01:46 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,36 @@
 //*	El arreglo termina en NULL.
 //?	Devuelve NULL en caso de error de asignación de memoria o entrada inválida.
 
+//  We need to first copy the env into a new array so we can alter it
+//  Temp malloc im not sure how to do it, look into it
+void bubbleSort(char **arr, int n)
+{
+	int	i;
+	int	j;
+	int	swapped;
+
+	while (i < n - 1)
+	{
+		j = 0;
+		swapped = 0;
+
+		while (j < n - i - 1)
+		{
+			if (ft_strcmp(arr[j], arr[j + 1]) > 0)
+			{
+				ft_strcpy(temp, arr[j]);
+				ft_strcpy(arr[j], arr[j + 1]);
+				ft_strcpy(arr[j + 1], temp);
+				swapped = 1;
+			}
+			j++;
+		}
+		if (!swapped)
+			break;
+		i++;
+	}
+}
+
 static char     **get_key_value_pair(char *arg)
 {
     char    **tmp;
@@ -39,6 +69,8 @@ static char     **get_key_value_pair(char *arg)
 	tmp[2] = NULL;
 	return (tmp);
 }
+
+G
 
 // Very rough sketch:
 void print_export(char **envp_copy)
