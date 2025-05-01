@@ -6,10 +6,12 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/04/27 22:19:25 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/05/01 21:06:07 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# include <stdbool.h>
+#include "../includes/lexer.h"
 #include "../includes/clean_and_exit.h"
 #include "../includes/minishell.h"
 #include "../includes/structs.h"
