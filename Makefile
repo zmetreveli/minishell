@@ -6,7 +6,7 @@
 #    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/04/24 21:26:33 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/05/01 21:01:04 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,8 @@ SRC = src/minishell.c \
 	  src/parser/trunc.c \
 	  src/redirection/redirection.c \
 	  src/clean_and_exit/exit.c \
+	  src/executor/exec.c \
+	  src/lexer/parse_user_input.c \
 
 OBJ = $(SRC:.c=.o)
 

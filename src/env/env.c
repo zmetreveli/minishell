@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 11:27:53 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 19:22:13 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/26 23:53:01 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int env_var_count(char **env)
 }
 
 //!	Busca una coincidencia exacta del nombre de una variable en el array de entorno (env).
+//  PATH
 //*	La búsqueda compara la cadena "<var>=" con el inicio de cada entrada del entorno.
 //?	Devuelve el índice de la coincidencia, o -1 si no se encuentra.
  
@@ -61,6 +62,7 @@ int	get_env_var_index(char **env, char *var)
 
 //!	Busca una coincidencia exacta del nombre de una variable en el array de entorno.
 //*	Si la encuentra, devuelve un puntero a la parte del valor (lo que está después del '=').
+//! uso para echo $HOME
 //?	Devuelve NULL si no encuentra la variable.
 
 char	*get_env_var_value(char **env, char *var)
@@ -86,6 +88,7 @@ char	*get_env_var_value(char **env, char *var)
 }
 
 //!	Verifica si key es un nombre válido para una variable de entorno.
+//* es antes de anadir una variable de entorno.
 //?	Devuelve true si key contiene solo caracteres alfanuméricos o '_', o false si no.
 
 bool	is_valid_env_var_key(char *var)

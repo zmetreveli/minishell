@@ -6,10 +6,12 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/04/24 22:16:40 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/05/01 21:06:07 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# include <stdbool.h>
+#include "../includes/lexer.h"
 #include "../includes/clean_and_exit.h"
 #include "../includes/minishell.h"
 #include "../includes/structs.h"
@@ -21,6 +23,7 @@
 //#include "../includes/rediction.h"
 #include "../libft/libft.h"
 
+//todo/  Comprueba los argumentos de inicio (./minishell o ./minishell -c "comando")
 static bool	start_check(t_data *data, int ac, char **av)
 {
 	if (ac != 1 && ac != 3)
@@ -37,6 +40,9 @@ static bool	start_check(t_data *data, int ac, char **av)
 		data->interactive = true;
 	return (true);
 }
+
+//todo/  Modo no interactivo: ejecuta comandos dados por argumento (separados por ';')
+
 void	minishell_noninteractive(t_data *data, char *arg)
 {
 	char	**user_inputs;
@@ -59,13 +65,14 @@ void	minishell_noninteractive(t_data *data, char *arg)
 	free_str_tab(user_inputs);
 }
 
+//todo/  Modo interactivo: loop que pide input y ejecuta comandos
 void	minishell_interactive(t_data *data)
 {
 	while (1)
 	{
-		set_signals_interactive();
+		//set_signals_interactive();
 		data->user_input = readline(PROMPT);
-		set_signals_noninteractive();
+		//set_signals_noninteractive();
 		if (parse_user_input(data) == true)
 			g_last_exit_code = execute(data);
 		else

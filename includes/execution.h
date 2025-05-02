@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execution.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 20:14:12 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/18 20:20:51 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/05/01 20:46:33 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,8 @@ int			export_builtin(t_data *data, char **args);
 int			unset_builtin(t_data *data, char **args);
 int			cd_builtin(t_data *data, char **args);
 int			exit_builtin(t_data *data, char **args);
+
+
+int         execute(t_data *data);
 
 #endif
