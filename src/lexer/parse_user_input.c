@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec.c                                             :+:      :+:    :+:   */
+/*   parse_user_input.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 01:31:14 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/05/01 20:45:47 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/05/01 20:50:06 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/05/01 20:52:23 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,37 @@
 #include "../includes/rediction.h"
 #include "../libft/libft.h"
 
-int	execute(t_data *data)
+static bool	input_is_space(char *input)
 {
-	int	ret;
+	int	i;
 
-	ret = prep_for_exec(data);
-	if (ret != CMD_NOT_FOUND)
-		return (ret);
-	if (!data->cmd->pipe_output && !data->cmd->prev
-		&& check_infile_outfile(data->cmd->io_fds))
+	i = 0;
+	while (input[i])
 	{
-		redirect_io(data->cmd->io_fds);
-		ret = execute_builtin(data, data->cmd);
-		restore_io(data->cmd->io_fds);
+		if (!ft_isspace(input[i]))
+			return (false);
+		i++;
 	}
-	if (ret != CMD_NOT_FOUND)
-		return (ret);
-	return (create_children(data));
+	return (true);
+}
+
+bool	parse_user_input(t_data *data)
+{
+	if (data->user_input == NULL)
+		exit_builtin(data, NULL);
+	else if (ft_strcmp(data->user_input, "\0") == 0)
+		return (false);
+	else if (input_is_space(data->user_input))
+		return (true);
+	add_history(data->user_input);
+	if (tokenization(data, data->user_input) == FAILURE)
+		return (false);
+	if (data->token->type == END)
+		return (false);
+	if (check_if_var(&data->token) == FAILURE)
+		return (false);
+	var_expander(data, &data->token);
+	handle_quotes(data);
+	create_commands(data, data->token);
+	return (true);
 }
