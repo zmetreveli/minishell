@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:35:20 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 19:22:59 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/05/02 16:05:55 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,116 @@
 //*	Se utiliza para definir una variable de entorno.
 //*	Devuelve un arreglo de 2 strings: la clave y el valor.
 //*	El arreglo termina en NULL.
+
+int	count_rows(char **src)
+{
+	int	i;
+	
+	i = 0;
+	while (src[i])
+		i++;
+	return (i);
+}
+
+char	**copy_2d_arr(char **src)
+{
+	char	**dest;
+	int		i;
+	int		rows;
+	int		len;
+
+	rows = count_rows(src);
+	dest = malloc(sizeof(char *) * (rows + 1));
+	if (!dest)
+		return (NULL);
+	i = -1;
+	while (++i < rows)
+	{
+		len = strlen(src[i]) + 1;
+		dest[i] = malloc(sizeof(char) * len);
+		if (!dest[i])
+		{
+			while (--i >= 0)
+				free(dest[i]);
+			free(dest);
+			return (NULL);
+		}
+		strncpy(dest[i], src[i], len);
+	}
+	dest[i] = NULL;
+	return (dest);
+}
+
+void	free_2d_array(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
+
+void bubbleSort(char **arr, int n)
+{
+	int		i;
+	int		j;
+	int		swapped;
+	char	*tmp;
+
+	i = 0;
+	j = 0;
+	swapped = 0;
+	while (i < n - 1)
+	{
+		j = 0;
+		swapped = 0;
+		while (j < n - i - 1)
+		{
+			if (strcmp(arr[j], arr[j + 1]) > 0)
+			{
+				tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
+				swapped = 1;
+			}
+			j++;
+		}
+		if (!swapped)
+			break;
+		i++;
+	}
+}
+
+void print_export(char **envp)
+{
+	int		i;
+	int		size;
+	char	**envp_copy;
+	char	*equals;
+
+	i = 0;
+	size = 0;
+	envp_copy = copy_2d_arr(envp);
+	size = count_rows(envp);
+	bubbleSort(envp_copy, size);
+    while(envp_copy[i])
+	{
+        equals = strchr(envp_copy[i], '=');
+        if (equals)
+		{
+            *equals = '\0';
+            printf("declare -x %s=\"%s\"\n", envp_copy[i], equals + 1);
+            *equals = '=';
+        }
+ 		i++;
+    }
+	free_2d_array(envp_copy);
+}
+
 //?	Devuelve NULL en caso de error de asignación de memoria o entrada inválida.
 
 static char     **get_key_value_pair(char *arg)
