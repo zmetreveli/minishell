@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:35:20 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/05/02 14:12:09 by jbusom-r         ###   ########.fr       */
+/*   Updated: 2025/05/02 16:05:55 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,12 @@
 //*	Se utiliza para definir una variable de entorno.
 //*	Devuelve un arreglo de 2 strings: la clave y el valor.
 //*	El arreglo termina en NULL.
-//?	Devuelve NULL en caso de error de asignación de memoria o entrada inválida.
-
-//  We need to first copy the env into a new array so we can alter it
-//  Temp malloc im not sure how to do it, look into it
 
 int	count_rows(char **src)
 {
 	int	i;
-
+	
+	i = 0;
 	while (src[i])
 		i++;
 	return (i);
@@ -86,11 +83,13 @@ void bubbleSort(char **arr, int n)
 	int		swapped;
 	char	*tmp;
 
+	i = 0;
+	j = 0;
+	swapped = 0;
 	while (i < n - 1)
 	{
 		j = 0;
 		swapped = 0;
-
 		while (j < n - i - 1)
 		{
 			if (strcmp(arr[j], arr[j + 1]) > 0)
@@ -108,29 +107,15 @@ void bubbleSort(char **arr, int n)
 	}
 }
 
-static char     **get_key_value_pair(char *arg)
-{
-    char    **tmp;
-    char    *eq_pos;
-
-    eq_pos = ft_strchr(arg, '=');
-	if (!eq_pos)
-		return (NULL);
-    tmp = malloc(sizeof * tmp * (2 + 1));
-    tmp[0] = ft_substr(arg, 0, eq_pos - arg);
-	tmp[1] = ft_substr(eq_pos, 1, ft_strlen(eq_pos));
-	tmp[2] = NULL;
-	return (tmp);
-}
-
 void print_export(char **envp)
 {
 	int		i;
 	int		size;
 	char	**envp_copy;
 	char	*equals;
+
 	i = 0;
-	
+	size = 0;
 	envp_copy = copy_2d_arr(envp);
 	size = count_rows(envp);
 	bubbleSort(envp_copy, size);
@@ -146,6 +131,23 @@ void print_export(char **envp)
  		i++;
     }
 	free_2d_array(envp_copy);
+}
+
+//?	Devuelve NULL en caso de error de asignación de memoria o entrada inválida.
+
+static char     **get_key_value_pair(char *arg)
+{
+    char    **tmp;
+    char    *eq_pos;
+
+    eq_pos = ft_strchr(arg, '=');
+	if (!eq_pos)
+		return (NULL);
+    tmp = malloc(sizeof * tmp * (2 + 1));
+    tmp[0] = ft_substr(arg, 0, eq_pos - arg);
+	tmp[1] = ft_substr(eq_pos, 1, ft_strlen(eq_pos));
+	tmp[2] = NULL;
+	return (tmp);
 }
 
 //! Agrega o actualiza variables de entorno a partir de los argumentos dados.
