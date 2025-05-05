@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:19:23 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/26 23:01:13 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/05/02 22:11:41 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ void    exit_shell(t_data *data, int exno);
 
 void	free_str_tab(char **tab);
 void	free_data(t_data *data, bool clear_history);
+void	free_io(t_io_fds *io);
+void	free_ptr(void *ptr);
+
 
 //! error.c
 
