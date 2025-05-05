@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/05/02 22:02:47 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/04/26 10:38:12 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,12 @@ void	minishell_interactive(t_data *data)
 	}
 }
 
-int	main(int ac, char **av, char **env)
+int	main(int ac, char **av, char **envp)
 {
 	t_data	data;
 
 	ft_memset(&data, 0, sizeof(t_data));
+	data.env = env;
 	if (!start_check(&data, ac, av) || !init_data(&data, env))
 		exit_shell(NULL, EXIT_FAILURE);
 	if (data.interactive)
