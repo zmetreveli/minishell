@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/04/26 10:38:12 by jbusom-r         ###   ########.fr       */
+/*   Updated: 2025/05/10 21:57:55 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <stdbool.h>
+#include "../includes/init.h"
 #include "../includes/lexer.h"
 #include "../includes/clean_and_exit.h"
 #include "../includes/minishell.h"
@@ -81,7 +82,7 @@ void	minishell_interactive(t_data *data)
 	}
 }
 
-int	main(int ac, char **av, char **envp)
+int	main(int ac, char **av, char **env)
 {
 	t_data	data;
 
