@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:19:23 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/05/02 22:11:41 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/18 22:43:14 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CLEAN_AND_EXIT_H
 
 # include <stdbool.h>
+# include "structs.h" 
 
 typedef struct s_data t_data;
 
@@ -32,5 +33,6 @@ void	free_ptr(void *ptr);
 //! error.c
 
 bool	usage_message(bool return_val);
+int	errmsg_cmd(char *command, char *detail, char *error_message, int error_nb);
 
 #endif

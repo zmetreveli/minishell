@@ -6,12 +6,15 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:57:21 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/22 15:52:37 by jbusom-r         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:37:25 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ENV_H
 # define ENV_H
+
+#include <stdbool.h>
+#include "structs.h"
 
 //! env_utils
 

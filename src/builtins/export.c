@@ -6,18 +6,19 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:35:20 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/05/02 16:05:55 by jbusom-r         ###   ########.fr       */
+/*   Updated: 2025/06/18 23:04:53 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/structs.h"
-#include "../includes/env.h"
-#include "../includes/bultins.h"
-#include "../includes/minishell.h"
-#include "../includes/execution.h"
-#include "../includes/parser.h"
-#include "../includes/rediction.h"
-#include "../libft/libft.h"
+#include "../../includes/clean_and_exit.h"
+#include "../../includes/env.h"
+#include "../../includes/structs.h"
+#include "../../includes/bultins.h"
+#include "../../includes/minishell.h"
+#include "../../includes/execution.h"
+#include "../../includes/parser.h"
+#include "../../includes/redirection.h"
+#include "../../libft/libft.h"
 
 //!	Separa el argumento dado en una pareja clave-valor usando el carácter '='.
 //*	Se utiliza para definir una variable de entorno.
