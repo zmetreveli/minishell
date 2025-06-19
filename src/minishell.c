@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/05/10 21:57:55 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/20 01:20:34 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include "../includes/minishell.h"
 #include "../includes/execution.h"
 #include "../includes/parser.h"
-//#include "../includes/rediction.h"
+#include "../includes/redirection.h"
 #include "../libft/libft.h"
 
 //todo/  Comprueba los argumentos de inicio (./minishell o ./minishell -c "comando")
@@ -71,7 +71,7 @@ void	minishell_interactive(t_data *data)
 {
 	while (1)
 	{
-		//set_signals_interactive();
+		set_signals_interactive();
 		data->user_input = readline(PROMPT);
 		//set_signals_noninteractive();
 		if (parse_user_input(data) == true)

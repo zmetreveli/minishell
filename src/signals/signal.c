@@ -1,0 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   signal.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/20 00:58:09 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/06/20 01:11:21 by zmetreve         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <errno.h>
+#include <signal.h>
+#include "../../includes/clean_and_exit.h"
+#include "../../includes/env.h"
+#include "../../includes/structs.h"
+#include "../../includes/bultins.h"
+#include "../../includes/minishell.h"
+#include "../../includes/execution.h"
+#include "../../includes/parser.h"
+#include "../../includes/redirection.h"
+#include "../../libft/libft.h"
+
+void	set_signals_interactive(void)
+{
+	struct sigaction	act;
+
+	ignore_sigquit();
+	ft_memset(&act, 0, sizeof(act));
+	act.sa_handler = &signal_reset_prompt;
+	sigaction(SIGINT, &act, NULL);
+}

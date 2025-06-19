@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lexer.h                                            :+:      :+:    :+:   */
+/*   signals.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 20:51:14 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/20 00:09:19 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/06/20 01:00:12 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/06/20 01:00:48 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEXER_H
-# define LEXER_H
+#ifndef SIGNALS_H
+# define SIGNALS_H
 
-#include "structs.h"
-
-bool	parse_user_input(t_data *data);
-
-void		lstdelone_token(t_token *lst, void (*del)(void *));
+void		set_signals_interactive(void);
 
 #endif

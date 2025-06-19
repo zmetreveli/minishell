@@ -6,18 +6,43 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 23:00:56 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 19:24:54 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/20 00:21:13 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/structs.h"
-#include "../includes/env.h"
-#include "../includes/bultins.h"
-#include "../includes/minishell.h"
-#include "../includes/execution.h"
-#include "../includes/parser.h"
-#include "../includes/rediction.h"
-#include "../libft/libft.h"
+#include <errno.h>
+#include "../../includes/clean_and_exit.h"
+#include "../../includes/env.h"
+#include "../../includes/structs.h"
+#include "../../includes/bultins.h"
+#include "../../includes/minishell.h"
+#include "../../includes/execution.h"
+#include "../../includes/parser.h"
+#include "../../includes/redirection.h"
+#include "../../libft/libft.h"
+
+static char	**copy_default_in_new_tab(
+	int len, char **new_tab, t_command *last_cmd, t_token **tk_node)
+{
+	int		i;
+	t_token	*temp;
+
+	i = 0;
+	temp = *tk_node;
+	while (i < len)
+	{
+		new_tab[i] = last_cmd->args[i];
+		i++;
+	}
+	while (temp->type == WORD || temp->type == VAR)
+	{
+		new_tab[i] = ft_strdup(temp->str);
+		i++;
+		temp = temp->next;
+	}
+	new_tab[i] = NULL;
+	return (new_tab);
+}
 
 //! Rellena los argumentos del comando actual.
 //* Si es "echo", usa funciones especiales para manejar su formato.
@@ -72,28 +97,6 @@ int	add_args_default_mode(t_token **token_node, t_command *last_cmd)
 	return (SUCCESS);
 }
 
-static char	**copy_default_in_new_tab(
-	int len, char **new_tab, t_command *last_cmd, t_token **tk_node)
-{
-	int		i;
-	t_token	*temp;
-
-	i = 0;
-	temp = *tk_node;
-	while (i < len)
-	{
-		new_tab[i] = last_cmd->args[i];
-		i++;
-	}
-	while (temp->type == WORD || temp->type == VAR)
-	{
-		new_tab[i] = ft_strdup(temp->str);
-		i++;
-		temp = temp->next;
-	}
-	new_tab[i] = NULL;
-	return (new_tab);
-}
 
 //! ------------------------------------------------------- 
 int	count_arguments(t_token *temp)

@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:15:44 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 19:36:32 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/19 23:54:58 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,17 @@
 # include <sys/types.h>
 
 // 🟢 Forward declaration de t_token
-typedef struct s_token t_token;
+typedef struct s_token
+{	
+	char			*str;
+	char			*str_backup;
+	bool			var_exists;
+	int				type;
+	int				status;
+	bool			join;
+	struct s_token	*prev;
+	struct s_token	*next;
+}	t_token;
 
 // 🟢 Primero define t_io_fds
 typedef struct s_io_fds
@@ -45,18 +55,17 @@ typedef struct s_command
 	struct s_command	*prev;
 }	t_command;
 
-typedef enum e_token_type
-{
+enum e_token_types {
+	SPACES = 1,
 	WORD,
-	STRING,
+	VAR,
 	PIPE,
-	QUOTE,
-	DQUOTE,
-	REDIR_IN,
-	REDIR_OUT,
+	INPUT,
+	TRUNC,
+	HEREDOC,
 	APPEND,
-	HEREDOC
-}	t_token_type;
+	END
+};
 
 // 🟢 t_data puede usar t_token y t_command sin errores
 typedef struct s_data
