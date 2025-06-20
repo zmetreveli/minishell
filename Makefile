@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+         #
+#    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/05/10 22:04:35 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/06/20 22:06:39 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRC = src/minishell.c \
 	  src/executor/exec.c \
 	  src/lexer/parse_user_input.c \
 	  src/utils/init_data.c \
+	  src/signal/signal.c \
 
 OBJ = $(SRC:.c=.o)
 

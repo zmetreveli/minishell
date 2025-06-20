@@ -6,11 +6,12 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/06/20 01:20:34 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/20 21:52:09 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <stdbool.h>
+#include "../includes/signals.h"
 #include "../includes/init.h"
 #include "../includes/lexer.h"
 #include "../includes/clean_and_exit.h"

@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 23:38:05 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/20 01:04:01 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/20 22:25:52 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 #include "../../includes/parser.h"
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
+
+static bool evaluate_heredoc_line(t_data *data, char **line, t_io_fds *io, bool *ret);
+static char *get_expanded_var_line(t_data *data, char *line);
+static char *make_str_from_tab(char **tab);
 
 bool	fill_heredoc(t_data *data, t_io_fds *io, int fd)
 {
