@@ -6,19 +6,21 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:42:31 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/05/02 22:11:28 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/22 01:17:51 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/clean_and_exit.h"
-#include "../includes/structs.h"
-#include "../includes/env.h"
-#include "../includes/bultins.h"
-#include "../includes/minishell.h"
-#include "../includes/execution.h"
-#include "../includes/parser.h"
-#include "../includes/rediction.h"
-#include "../libft/libft.h"
+#include <errno.h>
+#include "../../includes/clean_and_exit.h"
+#include "../../includes/lexer.h"
+#include "../../includes/env.h"
+#include "../../includes/structs.h"
+#include "../../includes/bultins.h"
+#include "../../includes/minishell.h"
+#include "../../includes/execution.h"
+#include "../../includes/parser.h"
+#include "../../includes/redirection.h"
+#include "../../libft/libft.h"
 
 void	free_str_tab(char **tab)
 {
@@ -80,6 +82,20 @@ void	free_io(t_io_fds *io)
 		free_ptr(io->outfile);
 	if (io)
 		free_ptr(io);
+}
+
+void	close_fds(t_command *cmds, bool close_backups)
+{
+	if (cmds->io_fds)
+	{
+		if (cmds->io_fds->fd_in != -1)
+			close(cmds->io_fds->fd_in);
+		if (cmds->io_fds->fd_out != -1)
+			close(cmds->io_fds->fd_out);
+		if (close_backups)
+			restore_io(cmds->io_fds);
+	}
+	close_pipe_fds(cmds, NULL);
 }
 
 void	free_ptr(void *ptr)
