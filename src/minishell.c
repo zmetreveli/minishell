@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/06/20 21:52:09 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/21 23:56:38 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	minishell_interactive(t_data *data)
 	{
 		set_signals_interactive();
 		data->user_input = readline(PROMPT);
-		//set_signals_noninteractive();
+		set_signals_noninteractive();
 		if (parse_user_input(data) == true)
 			g_last_exit_code = execute(data);
 		else

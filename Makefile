@@ -6,7 +6,7 @@
 #    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/06/20 22:06:39 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/06/22 00:27:47 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,9 +33,9 @@ SRC = src/minishell.c \
 	  src/parser/heredoc.c \
 	  src/parser/parce_word.c \
 	  src/parser/parcer.c \
-	  src/parser/parser_append.c \
+	  src/parser/parse_append.c \
 	  src/parser/parse_input.c \
-	  src/parser/parser.c \
+	  src/parser/parcer.c \
 	  src/parser/test.c \
 	  src/parser/trunc.c \
 	  src/redirection/redirection.c \
@@ -46,6 +46,7 @@ SRC = src/minishell.c \
 	  src/lexer/parse_user_input.c \
 	  src/utils/init_data.c \
 	  src/signal/signal.c \
+	  src/expantion/var_expander.c \
 
 OBJ = $(SRC:.c=.o)
 

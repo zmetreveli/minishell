@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:15:44 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/19 23:54:58 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/22 00:08:22 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,11 @@ typedef struct s_data
 	t_command	*cmd;
 	pid_t		pid;
 }	t_data;
+
+enum e_quoting_status {
+	DEFAULT,
+	SQUOTE,
+	DQUOTE
+};
 
 #endif

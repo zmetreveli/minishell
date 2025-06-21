@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lexer.h                                            :+:      :+:    :+:   */
+/*   expancion.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 20:51:14 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/21 23:37:52 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/06/21 20:01:51 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/06/22 00:19:56 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEXER_H
-# define LEXER_H
+#ifndef EXPANSION_H
+#define EXPANSION_H
 
-#include "structs.h"
+# include "structs.h"
 
-bool	parse_user_input(t_data *data);
-
-t_token	*lst_new_token(char *str, char *str_backup, int type, int status);
-void	lst_add_back_token(t_token **alst, t_token *new_node);
-void		lstdelone_token(t_token *lst, void (*del)(void *));
-void	lstclear_token(t_token **lst, void (*del)(void *));
-
+int	var_expander(t_data *data, t_token **token_lst);
+char	*var_expander_heredoc(t_data *data, char *str);
 
 #endif

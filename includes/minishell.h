@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:26:30 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/20 00:15:06 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/21 22:08:05 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@
 #include "../includes/parser.h"
 //#include "../includes/rediction.h"
 #include "../libft/libft.h"
+
+#define HEREDOC_NAME "/tmp/.heredoc_"
 
 extern int	g_last_exit_code;
 
