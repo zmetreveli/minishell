@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 00:58:09 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/20 22:05:38 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/22 22:12:36 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,21 @@
 #include "../../includes/parser.h"
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
+
+void	signal_reset_prompt(int signo)
+{
+	(void)signo;
+	write(1, "\n", 1);
+	rl_on_new_line();
+	rl_replace_line("", 0);
+	rl_redisplay();
+}
+
+void	signal_print_newline(int signal)
+{
+	(void)signal;
+	rl_on_new_line();
+}
 
 void	set_signals_interactive(void)
 {

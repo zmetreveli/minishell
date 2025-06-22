@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 20:51:14 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/21 23:37:52 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/23 00:26:58 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ void	lst_add_back_token(t_token **alst, t_token *new_node);
 void		lstdelone_token(t_token *lst, void (*del)(void *));
 void	lstclear_token(t_token **lst, void (*del)(void *));
 
+
+int	tokenization(t_data *data, char *str);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_user_input.c                                 :+:      :+:    :+:   */
+/*   pipes.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 20:50:06 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/23 00:19:01 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/06/22 19:37:55 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/06/23 00:16:07 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,37 +24,50 @@
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
 
-static bool	input_is_space(char *input)
+void	close_pipe_fds(t_command *cmds, t_command *skip_cmd)
 {
-	int	i;
-
-	i = 0;
-	while (input[i])
+	while (cmds)
 	{
-		if (!ft_isspace(input[i]))
-			return (false);
-		i++;
+		if (cmds != skip_cmd && cmds->pipe_fd)
+		{
+			close(cmds->pipe_fd[0]);
+			close(cmds->pipe_fd[1]);
+		}
+		cmds = cmds->next;
+	}
+}
+
+bool	create_pipes(t_data *data)
+{
+	int			*fd;
+	t_command	*tmp;
+
+	tmp = data->cmd;
+	while (tmp)
+	{
+		if (tmp->pipe_output || (tmp->prev && tmp->prev->pipe_output))
+		{
+			fd = malloc(sizeof * fd * 2);
+			if (!fd || pipe(fd) != 0)
+			{
+				free_data(data, false);
+				return (false);
+			}
+			tmp->pipe_fd = fd;
+		}
+		tmp = tmp->next;
 	}
 	return (true);
 }
 
-bool	parse_user_input(t_data *data)
+bool	set_pipe_fds(t_command *cmds, t_command *c)
 {
-	if (data->user_input == NULL)
-		exit_builtin(data, NULL);
-	else if (ft_strcmp(data->user_input, "\0") == 0)
+	if (!c)
 		return (false);
-	else if (input_is_space(data->user_input))
-		return (true);
-	add_history(data->user_input);
-	if (tokenization(data, data->user_input) == FAILURE)
-		return (false);
-	if (data->token->type == END)
-		return (false);
-	if (check_if_var(&data->token) == FAILURE)
-		return (false);
-	var_expander(data, &data->token);
-	handle_quotes(data);
-	create_commands(data, data->token);
+	if (c->prev && c->prev->pipe_output)
+		dup2(c->prev->pipe_fd[0], STDIN_FILENO);
+	if (c->pipe_output)
+		dup2(c->pipe_fd[1], STDOUT_FILENO);
+	close_pipe_fds(cmds, c);
 	return (true);
 }

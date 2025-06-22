@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 20:14:12 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/05/01 20:46:33 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/22 23:16:34 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ int			exit_builtin(t_data *data, char **args);
 
 
 int         execute(t_data *data);
+int	        execute_builtin(t_data *data, t_command *cmd);
+int     	execute_command(t_data *data, t_command *cmd);
 
 #endif

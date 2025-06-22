@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:26:30 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/21 22:08:05 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/22 21:21:57 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@
 #include "../libft/libft.h"
 
 #define HEREDOC_NAME "/tmp/.heredoc_"
+
+# define CMD_NOT_FOUND 127
+# define CMD_NOT_EXECUTABLE 126
 
 extern int	g_last_exit_code;
 
