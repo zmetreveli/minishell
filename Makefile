@@ -6,7 +6,7 @@
 #    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/06/22 00:27:47 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/06/26 02:50:34 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,8 @@ SRC = src/minishell.c \
 	  src/executor/exec.c \
 	  src/lexer/parse_user_input.c \
 	  src/utils/init_data.c \
-	  src/signal/signal.c \
-	  src/expantion/var_expander.c \
+	  src/signals/signal.c \
+	  src/expancion/var_expander.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -58,7 +58,7 @@ all: $(NAME)
 %.o: %.c includes/builtins.h includes/parser.h includes/redirection.h includes/env.h includes/clean_and_exit.h $(LIBFT) Makefile \
 	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
 
-$(NAME): $(OBJ) $(SRC) Makefile includes/builtins.h includes/parser.h includes/redirection.h includes/clean_and_exit.h includes/env.h \
+$(NAME): $(OBJ) $(SRC) Makefile includes/bultins.h includes/parser.h includes/redirection.h includes/clean_and_exit.h includes/env.h \
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 clean:

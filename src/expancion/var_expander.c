@@ -6,12 +6,13 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 19:59:56 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/21 20:12:47 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/25 23:52:16 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
 #include "../../includes/clean_and_exit.h"
+#include "../../includes/expancion.h"
 #include "../../includes/env.h"
 #include "../../includes/structs.h"
 #include "../../includes/bultins.h"
