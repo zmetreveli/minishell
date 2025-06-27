@@ -6,7 +6,7 @@
 #    By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/06/27 18:19:50 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/06/27 18:34:25 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = minishell
 
 CC = cc
 CFLAGS = -Werror -Wextra -Wall -gdwarf-4 -g
-CPPFLAGS += -I/opt/homebrew/opt/readline/include -I../MINISHELL/libft
+CPPFLAGS += -I/opt/homebrew/opt/readline/include -I../minishell/libft
 LDFLAGS  += -L/opt/homebrew/opt/readline/lib
 LIBS     += -lreadline
 
@@ -61,21 +61,27 @@ SRC = src/minishell.c \
 
 OBJ = $(SRC:.c=.o)
 
-LIBFT = ../MINISHELL/libft/libft.a
+LIBFT_DIR = ../minishell/libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
 all: $(NAME)
+
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
 
 %.o: %.c includes/bultins.h includes/parser.h includes/redirection.h includes/env.h includes/clean_and_exit.h $(LIBFT) Makefile
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(OBJ) $(LIBFT) -o $(NAME) $(LIBS)
 
 clean:
 	rm -f $(OBJ)
+	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
