@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:26:30 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/22 21:21:57 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/27 18:24:01 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define SUCCESS 0
 # define FAILURE 1
 
+#include <stdio.h>
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <stdio.h>

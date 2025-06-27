@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:42:31 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/22 01:17:51 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/27 18:18:56 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>  // ← NECESARIO para que FILE esté definido
 #include <errno.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 #include "../../includes/clean_and_exit.h"
 #include "../../includes/lexer.h"
 #include "../../includes/env.h"

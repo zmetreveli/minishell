@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/06/21 23:56:38 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/27 18:22:23 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <stdbool.h>
+#include <stdio.h>
+#include <stdbool.h>
 #include "../includes/signals.h"
 #include "../includes/init.h"
 #include "../includes/lexer.h"

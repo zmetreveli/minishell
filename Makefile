@@ -3,17 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
+#    By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/06/26 03:52:40 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/06/27 18:19:50 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Werror -Wextra -Wall -gdwarf-4 -g
+CPPFLAGS += -I/opt/homebrew/opt/readline/include -I../MINISHELL/libft
+LDFLAGS  += -L/opt/homebrew/opt/readline/lib
+LIBS     += -lreadline
 
 SRC = src/minishell.c \
 	  src/builtins/cd.c \
@@ -58,18 +61,15 @@ SRC = src/minishell.c \
 
 OBJ = $(SRC:.c=.o)
 
-LIBFT_DIR = ../cursus/minitalk/libft
-LIBFT = $(LIBFT_DIR)/libft.a
-
+LIBFT = ../MINISHELL/libft/libft.a
 
 all: $(NAME)
 
 %.o: %.c includes/bultins.h includes/parser.h includes/redirection.h includes/env.h includes/clean_and_exit.h $(LIBFT) Makefile
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
-
-$(NAME): $(OBJ) $(SRC) 
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME) -l readline
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(OBJ) $(LIBFT) -o $(NAME) $(LIBS)
 
 clean:
 	rm -f $(OBJ)
