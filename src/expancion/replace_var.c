@@ -6,11 +6,14 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 23:45:39 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/25 23:46:36 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/28 21:27:27 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
+#include "../../includes/lexer.h"
+#include "../../includes/signals.h"
+#include "../../includes/expancion.h"
 #include "../../includes/clean_and_exit.h"
 #include "../../includes/env.h"
 #include "../../includes/structs.h"

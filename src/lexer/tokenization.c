@@ -6,11 +6,12 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 00:25:20 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/23 00:27:02 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/28 22:54:00 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
+#include "../../includes/lexer.h"
 #include "../../includes/clean_and_exit.h"
 #include "../../includes/env.h"
 #include "../../includes/structs.h"

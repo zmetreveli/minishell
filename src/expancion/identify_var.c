@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   recover_value.c                                    :+:      :+:    :+:   */
+/*   identify_var.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 02:41:05 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/28 21:10:25 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/06/28 21:05:07 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/06/28 21:06:42 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,56 +24,61 @@
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
 
-static int	var_exists(t_data *data, char *var)
+bool	is_var_compliant(char c)
 {
-	int		i;
-	int		len;
-
-	i = 0;
-	len = ft_strlen(var);
-	while (data->env[i])
-	{
-		if (ft_strncmp(data->env[i], var, len) == 0)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-static char	*search_env_var(t_data *data, char *var)
-{
-	char	*str;
-	int		i;
-	int		len;
-
-	i = 0;
-	len = ft_strlen(var);
-	while (data->env[i])
-	{
-		if (ft_strncmp(data->env[i], var, len) == 0)
-			break ;
-		i++;
-	}
-	str = ft_strdup(data->env[i] + len);
-	return (str);
-}
-
-char	*recover_val(t_token *token, char *str, t_data *data)
-{
-	char	*value;
-	char	*var;
-
-	var = identify_var(str);
-	if (var && var_exists(data, var) == 0)
-	{
-		if (token != NULL)
-			token->var_exists = true;
-		value = search_env_var(data, var);
-	}
-	else if (var && var[0] == '?' && var[1] == '=')
-		value = ft_itoa(g_last_exit_code);
+	if (ft_isalnum(c) == 0 && c != '_')
+		return (false);
 	else
-		value = NULL;
+		return (true);
+}
+
+int	var_length(char *str)
+{
+	int		i;
+	int		count;
+
+	count = 0;
+	i = 0;
+	while (str[i] != '$')
+		i++;
+	i++;
+	if ((str[i] >= '0' && str[i] <= '9') || str[i] == '?')
+		return (count + 1);
+	while (str[i])
+	{
+		if (is_var_compliant(str[i]) == false)
+			break ;
+		count++;
+		i++;
+	}
+	return (count);
+}
+
+char	*identify_var(char *str)
+{
+	char	*var;
+	char	*tmp;
+	int		start;
+	int		len;
+	int		i;
+
+	i = 0;
+	start = 0;
+	while (str[i])
+	{
+		if (str[i] == '$')
+		{
+			start = i + 1;
+			break ;
+		}
+		i++;
+	}
+	len = var_length(str);
+	var = ft_substr(str, start, len);
+	if (!var)
+		return (NULL);
+	tmp = ft_strjoin(var, "=");
 	free_ptr(var);
-	return (value);
+	var = tmp;
+	return (var);
 }

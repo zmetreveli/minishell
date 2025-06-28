@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/06/27 18:22:23 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/28 22:56:57 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 #include "../includes/parser.h"
 #include "../includes/redirection.h"
 #include "../libft/libft.h"
+
+int		g_last_exit_code = 0;
 
 //todo/  Comprueba los argumentos de inicio (./minishell o ./minishell -c "comando")
 static bool	start_check(t_data *data, int ac, char **av)

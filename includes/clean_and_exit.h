@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:19:23 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/22 01:19:57 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/28 22:34:04 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ void    close_fds(t_command *cmds, bool close_backups);
 //! error.c
 
 bool	usage_message(bool return_val);
-int	errmsg_cmd(char *command, char *detail, char *error_message, int error_nb);
+int	    errmsg_cmd(char *command, char *detail, char *error_message, int error_nb);
+void	errmsg(char *errmsg, char *detail, int quotes);
+char	*join_strs(char *str, char *add);
+
+
 
 #endif

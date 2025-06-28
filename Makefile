@@ -6,7 +6,7 @@
 #    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/06/28 19:14:42 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/06/28 22:51:03 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,8 @@ SRC = src/minishell.c \
 	  src/executor/exec_utils.c \
 	  src/executor/parse_path.c \
 	  src/expancion/var_expander.c \
+	  src/expancion/identify_var.c \
+	  src/expancion/expancion_utils.c \
 	  src/expancion/quotes_handler.c \
 	  src/expancion/quotes_remover.c \
 	  src/expancion/recover_value.c \
@@ -44,7 +46,9 @@ SRC = src/minishell.c \
 	  src/lexer/parse_user_input.c \
 	  src/lexer/check_if_var.c \
 	  src/lexer/token_lst_utils.c \
+	  src/lexer/lexer_grammar.c \
 	  src/lexer/tokenization.c \
+	  src/lexer/tokenization_utils.c \
 	  src/parser/args_echo_utils.c \
 	  src/parser/args_echo.c \
 	  src/parser/args.c \
@@ -72,7 +76,7 @@ all: $(NAME)
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-%.o: %.c includes/bultins.h includes/parser.h includes/redirection.h includes/env.h includes/clean_and_exit.h $(LIBFT) Makefile
+%.o: %.c includes/bultins.h includes/clean_and_exit.h includes/env.h includes/execution.h includes/expancion.h includes/init.h includes/lexer.h includes/minishell.h includes/parser.h includes/redirection.h includes/signals.h includes/structs.h $(LIBFT) Makefile
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ) $(LIBFT)

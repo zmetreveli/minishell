@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   recover_value.c                                    :+:      :+:    :+:   */
+/*   expancion_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 02:41:05 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/28 21:10:25 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/06/28 21:34:24 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/06/28 21:34:55 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,56 +24,42 @@
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
 
-static int	var_exists(t_data *data, char *var)
+void	copy_var_value(char *new_str, char *var_value, int *j)
 {
-	int		i;
-	int		len;
+	int	k;
 
-	i = 0;
-	len = ft_strlen(var);
-	while (data->env[i])
+	k = 0;
+	while (var_value[k])
 	{
-		if (ft_strncmp(data->env[i], var, len) == 0)
-			return (0);
-		i++;
+		new_str[*j] = var_value[k];
+		k++;
+		(*j)++;
 	}
-	return (1);
 }
 
-static char	*search_env_var(t_data *data, char *var)
+char	*get_new_token_string(char *oldstr, char *var_value,
+		int newstr_size, int index)
 {
-	char	*str;
 	int		i;
-	int		len;
+	int		j;
+	char	*new_str;
 
 	i = 0;
-	len = ft_strlen(var);
-	while (data->env[i])
+	j = 0;
+	new_str = malloc(sizeof(char) * newstr_size);
+	if (!new_str)
+		return (NULL);
+	while (oldstr[i])
 	{
-		if (ft_strncmp(data->env[i], var, len) == 0)
-			break ;
-		i++;
+		if (oldstr[i] == '$' && i == index)
+		{
+			copy_var_value(new_str, var_value, &j);
+			i = i + var_length(oldstr + index) + 1;
+			if (oldstr[i] == '\0')
+				break ;
+		}
+		new_str[j++] = oldstr[i++];
 	}
-	str = ft_strdup(data->env[i] + len);
-	return (str);
-}
-
-char	*recover_val(t_token *token, char *str, t_data *data)
-{
-	char	*value;
-	char	*var;
-
-	var = identify_var(str);
-	if (var && var_exists(data, var) == 0)
-	{
-		if (token != NULL)
-			token->var_exists = true;
-		value = search_env_var(data, var);
-	}
-	else if (var && var[0] == '?' && var[1] == '=')
-		value = ft_itoa(g_last_exit_code);
-	else
-		value = NULL;
-	free_ptr(var);
-	return (value);
+	new_str[j] = '\0';
+	return (new_str);
 }
