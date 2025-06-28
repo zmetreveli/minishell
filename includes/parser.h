@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 11:10:33 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/22 15:53:08 by jbusom-r         ###   ########.fr       */
+/*   Updated: 2025/06/28 23:47:42 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ char		*get_relative_path(char *file_to_open);
 bool		remove_old_file_ref(t_io_fds *io, bool infile);
 void		parse_input(t_command **last_cmd, t_token **token_lst);
 void		parse_pipe(t_command **cmd, t_token **token_lst);
+
 #endif

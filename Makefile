@@ -6,16 +6,15 @@
 #    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/06/28 22:51:03 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/06/29 00:00:24 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 CC = cc
-CFLAGS = -Werror -Wextra -Wall -gdwarf-4 -g
-CPPFLAGS += -I/opt/homebrew/opt/readline/include -I../minishell/libft
-LDFLAGS  += -L/opt/homebrew/opt/readline/lib
+CFLAGS = -Werror -Wextra -Wall -g
+CPPFLAGS += -I../minishell/libft
 LIBS     += -lreadline
 
 SRC = src/minishell.c \
@@ -64,7 +63,7 @@ SRC = src/minishell.c \
 	  src/redirection/redirection.c \
 	  src/redirection/pipes.c \
 	  src/signals/signal.c \
-	  src/utils/init_data.c \
+	  src/utils/init_data.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -80,7 +79,7 @@ $(LIBFT):
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(OBJ) $(LIBFT) -o $(NAME) $(LIBS)
+	$(CC) $(OBJ) $(LIBFT) -o $(NAME) $(LIBS)
 
 clean:
 	rm -f $(OBJ)

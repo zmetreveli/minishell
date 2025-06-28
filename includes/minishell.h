@@ -6,15 +6,13 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:26:30 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/28 22:59:26 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/29 00:17:57 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# define SUCCESS 0
-# define FAILURE 1
 
 #include <stdio.h>
 #include <readline/readline.h>
@@ -43,13 +41,20 @@
 //#include "../includes/rediction.h"
 #include "../libft/libft.h"
 
-#define HEREDOC_NAME "/tmp/.heredoc_"
+# define PROMPT "\001\e[45m\002>>> \001\e[0m\e[33m\002 Minishell>$ Son las 2:34h Y no me siento cansado, me siento asi-----> 🥴 \001\e[0m\002"
+# define HEREDOC_NAME "/tmp/.minishell_heredoc_"
 
 # define CMD_NOT_FOUND 127
 # define CMD_NOT_EXECUTABLE 126
 
+# ifndef PATH_MAX
+#  define PATH_MAX 4096
+# endif
+
+# define SUCCESS 0
+# define FAILURE 1
+
 extern int	g_last_exit_code;
 
-# define PROMPT "\001\e[45m\002>>> \001\e[0m\e[33m\002 Minishell>$ \001\e[0m\002"
 
 #endif
