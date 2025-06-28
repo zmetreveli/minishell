@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+         #
+#    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/06/27 18:34:25 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/06/28 19:14:42 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,11 @@ SRC = src/minishell.c \
 	  src/executor/exec.c \
 	  src/executor/exec_cmd.c \
 	  src/executor/redir.c \
+	  src/executor/exec_utils.c \
+	  src/executor/parse_path.c \
 	  src/expancion/var_expander.c \
 	  src/expancion/quotes_handler.c \
+	  src/expancion/quotes_remover.c \
 	  src/expancion/recover_value.c \
 	  src/expancion/replace_var.c \
 	  src/lexer/parse_user_input.c \
