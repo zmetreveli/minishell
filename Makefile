@@ -6,7 +6,7 @@
 #    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/06/30 22:43:19 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/07/01 00:26:30 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ CFLAGS = -Werror -Wextra -Wall -g
 CPPFLAGS += -I../minishell/libft
 LIBS     += -lreadline
 
-//comment for testing
 
 SRC = src/minishell.c \
 	  src/builtins/cd.c \
@@ -60,7 +59,8 @@ SRC = src/minishell.c \
 	  src/parser/parse_append.c \
 	  src/parser/parse_input.c \
 	  src/parser/parcer.c \
-	  src/parser/test.c \
+	  src/parser/cleanup.c \
+	  src/parser/pipe.c \
 	  src/parser/trunc.c \
 	  src/redirection/redirection.c \
 	  src/redirection/pipes.c \

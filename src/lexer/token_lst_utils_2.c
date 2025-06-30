@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_append.c                                     :+:      :+:    :+:   */
+/*   token_lst_utils_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 23:24:47 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/01 00:07:15 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/06/30 23:32:34 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/06/30 23:33:08 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,34 +24,35 @@
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
 
-
-static void	open_outfile_append(t_io_fds *io, char *file, char *var_filename)
+static void	link_extremities(t_token *to_del, t_token *temp, t_token *insert)
 {
-if (!remove_old_file_ref(io, false))
-    return ;
-io->outfile = ft_strdup(file);
-if (io->outfile && io->outfile[0] == '\0' && var_filename)
-{
-    errmsg_cmd(var_filename, NULL, "ambiguous redirect", false);
-    return ;
-}
-io->fd_out = open(io->outfile, O_WRONLY | O_CREAT | O_APPEND, 0664);
-if (io->fd_out == -1)
-    errmsg_cmd(io->outfile, NULL, strerror(errno), false);
+	while (temp != to_del)
+		temp = temp->next;
+	insert->prev = temp->prev;
+	temp->prev->next = insert;
+	while (insert->next)
+		insert = insert->next;
+	temp->next->prev = insert;
+	insert->next = temp->next;
 }
 
-void	parse_append(t_command **last_cmd, t_token **token_lst)
+t_token	*insert_lst_between(t_token **head, t_token *to_del, t_token *insert)
 {
-t_token		*temp;
-t_command	*cmd;
+	t_token	*temp;
 
-temp = *token_lst;
-cmd = lst_last_cmd(*last_cmd);
-init_io(cmd);
-open_outfile_append(cmd->io_fds, temp->next->str, temp->next->str_backup);
-if (temp->next->next)
-    temp = temp->next->next;
-else
-    temp = temp->next;
-*token_lst = temp;
+	temp = *head;
+	if (temp == NULL)
+		*head = insert;
+	else if (temp == to_del)
+	{
+		*head = insert;
+		insert->next = temp->next;
+		if (temp->next != NULL)
+			temp->next->prev = insert;
+	}
+	else
+		link_extremities(to_del, temp, insert);
+	free_ptr(to_del->str);
+	free_ptr(to_del);
+	return (insert);
 }

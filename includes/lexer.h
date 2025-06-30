@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 20:51:14 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/28 22:50:35 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/30 23:33:38 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int	set_status(int status, char *str, int i);
 int	is_separator(char *str, int i);
 int	save_word(t_token **token_lst, char *str, int index, int start);
 int	save_separator(t_token **token_lst, char *str, int index, int type);
+t_token	*insert_lst_between(t_token **head, t_token *to_del, t_token *insert);
 
 #endif

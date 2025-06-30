@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_append.c                                     :+:      :+:    :+:   */
+/*   pipe.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 23:24:47 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/01 00:07:15 by zmetreve         ###   ########.fr       */
+/*   Created: 2025/07/01 00:23:50 by zmetreve          #+#    #+#             */
+/*   Updated: 2025/07/01 00:24:30 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,34 +24,13 @@
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
 
-
-static void	open_outfile_append(t_io_fds *io, char *file, char *var_filename)
+//! si encuentro un pipe
+void	parse_pipe(t_command **cmd, t_token **token_lst)
 {
-if (!remove_old_file_ref(io, false))
-    return ;
-io->outfile = ft_strdup(file);
-if (io->outfile && io->outfile[0] == '\0' && var_filename)
-{
-    errmsg_cmd(var_filename, NULL, "ambiguous redirect", false);
-    return ;
-}
-io->fd_out = open(io->outfile, O_WRONLY | O_CREAT | O_APPEND, 0664);
-if (io->fd_out == -1)
-    errmsg_cmd(io->outfile, NULL, strerror(errno), false);
-}
+	t_command	*last_cmd;
 
-void	parse_append(t_command **last_cmd, t_token **token_lst)
-{
-t_token		*temp;
-t_command	*cmd;
-
-temp = *token_lst;
-cmd = lst_last_cmd(*last_cmd);
-init_io(cmd);
-open_outfile_append(cmd->io_fds, temp->next->str, temp->next->str_backup);
-if (temp->next->next)
-    temp = temp->next->next;
-else
-    temp = temp->next;
-*token_lst = temp;
+	last_cmd = lst_last_cmd(*cmd);
+	last_cmd->pipe_output = true;
+	lst_add_back_cmd(&last_cmd, lst_new_cmd(false));
+	*token_lst = (*token_lst)->next;
 }
