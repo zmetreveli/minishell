@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 23:38:05 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/01 00:12:24 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/01 01:58:53 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ static char	*get_expanded_var_line(t_data *data, char *line)
 	}
 	return (make_str_from_tab(words));
 }
+
+
 static bool	evaluate_heredoc_line(t_data *data, char **line,
 	t_io_fds *io, bool *ret)
 	{

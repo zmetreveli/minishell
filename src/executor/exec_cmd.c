@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 21:59:28 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/28 17:53:39 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/01 02:51:04 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int	execute_local_bin(t_data *data, t_command *cmd)
 		return (errmsg_cmd("execve", NULL, strerror(errno), errno));
 	return (EXIT_FAILURE);
 }
-
+/*
 int	execute_command(t_data *data, t_command *cmd)
 {
 	int	ret;
@@ -95,5 +95,51 @@ int	execute_command(t_data *data, t_command *cmd)
 	}
 	ret = execute_local_bin(data, cmd);
 	exit_shell(data, ret);
+	return (ret);
+}*/
+
+
+#include <stdio.h> // para printf
+
+int	execute_command(t_data *data, t_command *cmd)
+{
+	int	ret;
+	int	i;
+
+	if (!cmd || !cmd->command)
+		exit_shell(data, errmsg_cmd("child", NULL,
+				"parsing error: no command to execute!", EXIT_FAILURE));
+
+	// ✅ Mostrar argumentos del comando
+	for (i = 0; cmd->args && cmd->args[i]; i++)
+		printf("DEBUG: CMD ARG[%d]: %s\n", i, cmd->args[i]);
+
+	// ✅ Verificar redirección de archivos
+	if (!check_infile_outfile(cmd->io_fds))
+		exit_shell(data, EXIT_FAILURE);
+
+	// ✅ Configurar fds de pipes si hay
+	set_pipe_fds(data->cmd, cmd);
+
+	// ✅ Redireccionar heredoc / archivos / pipes
+	redirect_io(cmd->io_fds);
+
+	// ✅ Cerrar fds que ya no se usan
+	close_fds(data->cmd, false);
+
+	// ✅ Ejecutar
+	if (ft_strchr(cmd->command, '/') == NULL)
+	{
+		ret = execute_builtin(data, cmd);
+		if (ret != CMD_NOT_FOUND)
+			exit_shell(data, ret);
+
+		ret = execute_sys_bin(data, cmd);
+		if (ret != CMD_NOT_FOUND)
+			exit_shell(data, ret);
+	}
+	ret = execute_local_bin(data, cmd);
+	exit_shell(data, ret);
+
 	return (ret);
 }

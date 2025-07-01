@@ -6,7 +6,7 @@
 #    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/07/01 00:26:30 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/07/01 02:46:44 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,6 @@ SRC = src/minishell.c \
 	  src/env/env.c \
 	  src/executor/exec.c \
 	  src/executor/exec_cmd.c \
-	  src/executor/redir.c \
 	  src/executor/exec_utils.c \
 	  src/executor/parse_path.c \
 	  src/expancion/var_expander.c \
@@ -46,6 +45,7 @@ SRC = src/minishell.c \
 	  src/lexer/parse_user_input.c \
 	  src/lexer/check_if_var.c \
 	  src/lexer/token_lst_utils.c \
+	  src/lexer/token_lst_utils_2.c \
 	  src/lexer/lexer_grammar.c \
 	  src/lexer/tokenization.c \
 	  src/lexer/tokenization_utils.c \
