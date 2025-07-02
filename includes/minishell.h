@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:26:30 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/29 00:17:57 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/02 21:14:58 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,18 @@
 //#include "../includes/rediction.h"
 #include "../libft/libft.h"
 
-# define PROMPT "\001\e[45m\002>>> \001\e[0m\e[33m\002 Minishell>$ Son las 2:34h Y no me siento cansado, me siento asi-----> 🥴 \001\e[0m\002"
+# define PROMPT "\001\e[1;32m\002\n\
+▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄\n\
+█   █ █   █ █   █ █   █\n\
+█   █ █   █ █   █ █▄▄▄█\n\
+█   █ █   █ █   █ █   █\n\
+█▄▄▄█ █▄▄▄█ █▄▄▄█ █   █  H4CK3R\n\
+\n\
+[ZURA&JAN@MINISHELL] ➜ \001\e[0m\002"
+
+
+
+
 # define HEREDOC_NAME "/tmp/.minishell_heredoc_"
 
 # define CMD_NOT_FOUND 127
