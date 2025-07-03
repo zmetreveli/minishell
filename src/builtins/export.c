@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:35:20 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/18 23:04:53 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/03 23:23:25 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,10 @@ int	export_builtin(t_data *data, char **args)
 			tmp = get_key_value_pair(args[i]);
 			set_env_var(data, tmp[0], tmp[1]);
 			free_str_tab(tmp);
+		}
+		else
+		{
+			set_env_var(data, args[i], "");
 		}
 		i++;
 	}

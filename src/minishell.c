@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/06/28 22:56:57 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/04 01:26:29 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,29 @@
 #include "../libft/libft.h"
 
 int		g_last_exit_code = 0;
+
+void	init_shlvl(t_data *data)
+{
+	char	*shlvl_str;
+	int		shlvl;
+	char	*new_shlvl_str;
+
+	shlvl_str = get_env_var_value(data->env, "SHLVL");
+	if (shlvl_str)
+	{
+		shlvl = ft_atoi(shlvl_str);
+		shlvl++;
+		new_shlvl_str = ft_itoa(shlvl);
+		set_env_var(data, "SHLVL", new_shlvl_str);
+		free(new_shlvl_str);
+	}
+	else
+	{
+		set_env_var(data, "SHLVL", "1");
+	}
+}
+
+
 
 //todo/  Comprueba los argumentos de inicio (./minishell o ./minishell -c "comando")
 static bool	start_check(t_data *data, int ac, char **av)
@@ -94,11 +117,11 @@ int	main(int ac, char **av, char **env)
 	data.env = env;
 	if (!start_check(&data, ac, av) || !init_data(&data, env))
 		exit_shell(NULL, EXIT_FAILURE);
+	init_shlvl(&data);
 	if (data.interactive)
 		minishell_interactive(&data);
 	else
 		minishell_noninteractive(&data, av[2]);
 	exit_shell(&data, g_last_exit_code);
-	// test
 	return (0);
 }

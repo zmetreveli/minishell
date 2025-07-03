@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:26:30 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/02 21:14:58 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/04 01:05:43 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@
 
 extern int	g_last_exit_code;
 
+void	init_shlvl(t_data *data);
 
 #endif
