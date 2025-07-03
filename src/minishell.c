@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/07/04 01:26:29 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/04 01:43:10 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,21 @@
 #include "../includes/redirection.h"
 #include "../libft/libft.h"
 
+#include <time.h>
+#include <stdio.h>
+#include <readline/readline.h>
+
 int		g_last_exit_code = 0;
+
+
+void get_time_prompt(char *buffer, size_t size)
+{
+    time_t now = time(NULL);
+    struct tm *local = localtime(&now);
+
+    strftime(buffer, size, "\001\033[1;36m\002[minishell %H:%M:%S] ➜ \001\033[0m\002 ", local);
+}
+
 
 void	init_shlvl(t_data *data)
 {
@@ -94,6 +108,7 @@ void	minishell_noninteractive(t_data *data, char *arg)
 }
 
 //todo/  Modo interactivo: loop que pide input y ejecuta comandos
+/*
 void	minishell_interactive(t_data *data)
 {
 	while (1)
@@ -108,6 +123,26 @@ void	minishell_interactive(t_data *data)
 		free_data(data, false);
 	}
 }
+*/
+
+void	minishell_interactive(t_data *data)
+{
+	char prompt[64];
+
+	while (1)
+	{
+		set_signals_interactive();
+		get_time_prompt(prompt, sizeof(prompt)); // genera prompt con hora
+		data->user_input = readline(prompt);
+		set_signals_noninteractive();
+		if (parse_user_input(data) == true)
+			g_last_exit_code = execute(data);
+		else
+			g_last_exit_code = 1;
+		free_data(data, false);
+	}
+}
+
 
 int	main(int ac, char **av, char **env)
 {

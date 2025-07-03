@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:26:30 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/04 01:05:43 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/04 01:39:27 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,7 @@
 //#include "../includes/rediction.h"
 #include "../libft/libft.h"
 
-# define PROMPT "\001\e[1;32m\002\n\
-▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄\n\
-█   █ █   █ █   █ █   █\n\
-█   █ █   █ █   █ █▄▄▄█\n\
-█   █ █   █ █   █ █   █\n\
-█▄▄▄█ █▄▄▄█ █▄▄▄█ █   █  H4CK3R\n\
-\n\
-[ZURA&JAN@MINISHELL] ➜ \001\e[0m\002"
+
 
 
 
