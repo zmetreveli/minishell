@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 11:37:29 by zmetreve          #+#    #+#             */
-/*   Updated: 2024/09/30 14:55:46 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/04 02:20:06 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int main()
 {
     const char *str1 = "12345";
     const char *str2 = "   -42";
-    const char *str3 = "+987";
+    const char *str1 = "+987";
     const char *str4 = "123abc456";
     const char *str5 = "hello";
     const char *str6 = "";

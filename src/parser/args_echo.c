@@ -6,18 +6,20 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 23:14:05 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 19:24:49 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/20 00:12:16 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/structs.h"
-#include "../includes/env.h"
-#include "../includes/bultins.h"
-#include "../includes/minishell.h"
-#include "../includes/execution.h"
-#include "../includes/parser.h"
-#include "../includes/rediction.h"
-#include "../libft/libft.h"
+#include <errno.h>
+#include "../../includes/clean_and_exit.h"
+#include "../../includes/env.h"
+#include "../../includes/structs.h"
+#include "../../includes/bultins.h"
+#include "../../includes/minishell.h"
+#include "../../includes/execution.h"
+#include "../../includes/parser.h"
+#include "../../includes/redirection.h"
+#include "../../libft/libft.h"
 
 //! Esta función gestiona el caso específico cuando el comando es "echo":
 //*  Reserva memoria para el array de argumentos usando la función count_args.

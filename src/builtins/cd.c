@@ -6,19 +6,20 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:34:31 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 19:22:28 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/18 22:47:16 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/structs.h"
-#include "../includes/env.h"
-#include "../includes/bultins.h"
-#include "../includes/minishell.h"
-#include "../includes/execution.h"
-#include "../includes/parser.h"
-#include "../includes/rediction.h"
-#include "../libft/libft.h"
-
+#include <errno.h>
+#include "../../includes/clean_and_exit.h"
+#include "../../includes/env.h"
+#include "../../includes/structs.h"
+#include "../../includes/bultins.h"
+#include "../../includes/minishell.h"
+#include "../../includes/execution.h"
+#include "../../includes/parser.h"
+#include "../../includes/redirection.h"
+#include "../../libft/libft.h"
 
 //! Actualiza las variables PWD y OLDPWD en el entorno después de un cambio de directorio.
 //* Se guarda una copia de las rutas internamente para usarlas en caso de que
@@ -57,7 +58,7 @@ static bool change_dir(t_data *data, char *path)
 {
 	char	*tmp;
 	char	*ret;
-	char	*cwd[PATH_MAX];
+	char	cwd[PATH_MAX];
 
 	ret = NULL;
 	if (chdir(path) != 0)
