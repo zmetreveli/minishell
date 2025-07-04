@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:25:42 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/18 23:15:39 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/04 23:56:17 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
 
-// !	Procesa cada argumento como un posible nombre de variable de entorno.
-// *	Si el nombre es válido y existe en el entorno, se elimina.
-// *	Los identificadores inválidos o que contienen '=' generan un mensaje de error.
-// *	Devuelve 0 si todas las variables fueron eliminadas correctamente,
-// ?	o 1 si ocurrió algún error.
-
+//Procesa cada argumento como un posible nombre de variable de entorno.
+//Si el nombre es válido y existe en el entorno, se elimina.
+//Los identificadores inválidos o que contienen '=' generan un mensaje de error.
+//Devuelve 0 si todas las variables fueron eliminadas correctamente,
+// o 1 si ocurrió algún error.
 
 int	unset_builtin(t_data *data, char **args)
 {
