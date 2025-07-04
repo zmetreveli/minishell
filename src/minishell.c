@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/07/04 01:43:10 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/04 02:18:36 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,34 @@
 
 #include <time.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <string.h>
 #include <readline/readline.h>
 
 int		g_last_exit_code = 0;
 
 
-void get_time_prompt(char *buffer, size_t size)
+void get_time_prompt(char *buffer, size_t size, t_data *data)
 {
     time_t now = time(NULL);
     struct tm *local = localtime(&now);
+    char *user = get_env_var_value(data->env, "USER");
+    char cwd[256];
+    char *color;
 
-    strftime(buffer, size, "\001\033[1;36m\002[minishell %H:%M:%S] ➜ \001\033[0m\002 ", local);
+    if (local->tm_hour < 12)
+        color = "\033[1;32m"; // verde
+    else
+        color = "\033[1;33m"; // amarillo
+
+    getcwd(cwd, sizeof(cwd)); // obtiene el directorio actual
+
+    snprintf(buffer, size,
+        "\001%s\002[%s@%s %02d:%02d:%02d] ➜ \001\033[0m\002 ",
+        color,
+        user ? user : "unknown",
+        cwd,
+        local->tm_hour, local->tm_min, local->tm_sec);
 }
 
 
@@ -127,12 +144,12 @@ void	minishell_interactive(t_data *data)
 
 void	minishell_interactive(t_data *data)
 {
-	char prompt[64];
+	char prompt[256];
 
 	while (1)
 	{
 		set_signals_interactive();
-		get_time_prompt(prompt, sizeof(prompt)); // genera prompt con hora
+		get_time_prompt(prompt, sizeof(prompt), data);
 		data->user_input = readline(prompt);
 		set_signals_noninteractive();
 		if (parse_user_input(data) == true)
@@ -142,6 +159,7 @@ void	minishell_interactive(t_data *data)
 		free_data(data, false);
 	}
 }
+
 
 
 int	main(int ac, char **av, char **env)
