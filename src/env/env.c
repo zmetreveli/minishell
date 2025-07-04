@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 11:27:53 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/18 23:21:24 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/04 22:11:48 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,28 @@ bool	is_valid_env_var_key(char *var)
 		i++;
 	}
 	return (true);
+}
+
+
+
+
+void	init_shlvl(t_data *data)
+{
+	char	*shlvl_str;
+	int		shlvl;
+	char	*new_shlvl_str;
+
+	shlvl_str = get_env_var_value(data->env, "SHLVL");
+	if (shlvl_str)
+	{
+		shlvl = ft_atoi(shlvl_str);
+		shlvl++;
+		new_shlvl_str = ft_itoa(shlvl);
+		set_env_var(data, "SHLVL", new_shlvl_str);
+		free(new_shlvl_str);
+	}
+	else
+	{
+		set_env_var(data, "SHLVL", "1");
+	}
 }
