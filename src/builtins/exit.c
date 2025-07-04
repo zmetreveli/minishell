@@ -6,23 +6,24 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:26:12 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 19:22:52 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/06/18 23:02:54 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/structs.h"
-#include "../includes/env.h"
-#include "../includes/bultins.h"
-#include "../includes/minishell.h"
-#include "../includes/execution.h"
-#include "../includes/parser.h"
-#include "../includes/rediction.h"
-#include "../libft/libft.h"
-
+#include <limits.h>
+#include "../../includes/clean_and_exit.h"
+#include "../../includes/env.h"
+#include "../../includes/structs.h"
+#include "../../includes/bultins.h"
+#include "../../includes/minishell.h"
+#include "../../includes/execution.h"
+#include "../../includes/parser.h"
+#include "../../includes/redirection.h"
+#include "../../libft/libft.h"
 
 //Todo/  controlamos si el numero esta dentro del rango
 
-static bool    chek_out_of_range(int neg, unsigned long long num, bool *error)
+static bool    check_out_of_range(int neg, unsigned long long num, bool *error)
 {
     if ((neg == 1 && num > LONG_MAX)
         || (neg == -1 && num > -(unsigned long)LONG_MIN))
@@ -84,7 +85,7 @@ static int get_exit_code(char *arg, bool *error)
     while (arg[i])
     {
         if (!ft_isdigit(arg[i]) && !ft_isspace(arg[i]))
-            *error = ture;
+            *error = true;
         i++;
     }
     i = ft_atoi_long(arg, error);

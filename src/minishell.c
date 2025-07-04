@@ -6,11 +6,14 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/04/26 10:38:12 by jbusom-r         ###   ########.fr       */
+/*   Updated: 2025/07/04 02:18:36 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <stdbool.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include "../includes/signals.h"
+#include "../includes/init.h"
 #include "../includes/lexer.h"
 #include "../includes/clean_and_exit.h"
 #include "../includes/minishell.h"
@@ -20,8 +23,64 @@
 #include "../includes/minishell.h"
 #include "../includes/execution.h"
 #include "../includes/parser.h"
-//#include "../includes/rediction.h"
+#include "../includes/redirection.h"
 #include "../libft/libft.h"
+
+#include <time.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <readline/readline.h>
+
+int		g_last_exit_code = 0;
+
+
+void get_time_prompt(char *buffer, size_t size, t_data *data)
+{
+    time_t now = time(NULL);
+    struct tm *local = localtime(&now);
+    char *user = get_env_var_value(data->env, "USER");
+    char cwd[256];
+    char *color;
+
+    if (local->tm_hour < 12)
+        color = "\033[1;32m"; // verde
+    else
+        color = "\033[1;33m"; // amarillo
+
+    getcwd(cwd, sizeof(cwd)); // obtiene el directorio actual
+
+    snprintf(buffer, size,
+        "\001%s\002[%s@%s %02d:%02d:%02d] ➜ \001\033[0m\002 ",
+        color,
+        user ? user : "unknown",
+        cwd,
+        local->tm_hour, local->tm_min, local->tm_sec);
+}
+
+
+void	init_shlvl(t_data *data)
+{
+	char	*shlvl_str;
+	int		shlvl;
+	char	*new_shlvl_str;
+
+	shlvl_str = get_env_var_value(data->env, "SHLVL");
+	if (shlvl_str)
+	{
+		shlvl = ft_atoi(shlvl_str);
+		shlvl++;
+		new_shlvl_str = ft_itoa(shlvl);
+		set_env_var(data, "SHLVL", new_shlvl_str);
+		free(new_shlvl_str);
+	}
+	else
+	{
+		set_env_var(data, "SHLVL", "1");
+	}
+}
+
+
 
 //todo/  Comprueba los argumentos de inicio (./minishell o ./minishell -c "comando")
 static bool	start_check(t_data *data, int ac, char **av)
@@ -66,13 +125,33 @@ void	minishell_noninteractive(t_data *data, char *arg)
 }
 
 //todo/  Modo interactivo: loop que pide input y ejecuta comandos
+/*
 void	minishell_interactive(t_data *data)
 {
 	while (1)
 	{
-		//set_signals_interactive();
+		set_signals_interactive();
 		data->user_input = readline(PROMPT);
-		//set_signals_noninteractive();
+		set_signals_noninteractive();
+		if (parse_user_input(data) == true)
+			g_last_exit_code = execute(data);
+		else
+			g_last_exit_code = 1;
+		free_data(data, false);
+	}
+}
+*/
+
+void	minishell_interactive(t_data *data)
+{
+	char prompt[256];
+
+	while (1)
+	{
+		set_signals_interactive();
+		get_time_prompt(prompt, sizeof(prompt), data);
+		data->user_input = readline(prompt);
+		set_signals_noninteractive();
 		if (parse_user_input(data) == true)
 			g_last_exit_code = execute(data);
 		else
@@ -81,7 +160,9 @@ void	minishell_interactive(t_data *data)
 	}
 }
 
-int	main(int ac, char **av, char **envp)
+
+
+int	main(int ac, char **av, char **env)
 {
 	t_data	data;
 
@@ -89,11 +170,11 @@ int	main(int ac, char **av, char **envp)
 	data.env = env;
 	if (!start_check(&data, ac, av) || !init_data(&data, env))
 		exit_shell(NULL, EXIT_FAILURE);
+	init_shlvl(&data);
 	if (data.interactive)
 		minishell_interactive(&data);
 	else
 		minishell_noninteractive(&data, av[2]);
 	exit_shell(&data, g_last_exit_code);
-	// test
 	return (0);
 }

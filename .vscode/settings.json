@@ -5,7 +5,9 @@
     "builtins.h": "c",
     "parser.h": "c",
     "libft.h": "c",
-    "clean_and_exit.h": "c"
+    "clean_and_exit.h": "c",
+    "minishell.h": "c",
+    "redirection.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

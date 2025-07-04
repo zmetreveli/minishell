@@ -6,18 +6,60 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 23:21:12 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 19:24:40 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/01 00:05:05 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/structs.h"
-#include "../includes/env.h"
-#include "../includes/bultins.h"
-#include "../includes/minishell.h"
-#include "../includes/execution.h"
-#include "../includes/parser.h"
-#include "../includes/rediction.h"
-#include "../libft/libft.h"
+#include <errno.h>
+#include "../../includes/clean_and_exit.h"
+#include "../../includes/lexer.h"
+#include "../../includes/env.h"
+#include "../../includes/structs.h"
+#include "../../includes/bultins.h"
+#include "../../includes/minishell.h"
+#include "../../includes/execution.h"
+#include "../../includes/parser.h"
+#include "../../includes/redirection.h"
+#include "../../libft/libft.h"
+
+char	*join_vars(t_token **token_node)
+{
+	t_token	*temp;
+	char	*str;
+
+	temp = *token_node;
+	str = ft_strdup(temp->str);
+	while (temp->type == VAR && temp->next->type == VAR
+		&& temp->next->join == true)
+	{
+		str = ft_strjoin(str, temp->next->str);
+		temp = temp->next;
+	}
+	*token_node = temp;
+	return (str);
+}
+
+int	count_args(t_token *temp)
+{
+	int	i;
+
+	i = 0;
+	while (temp && (temp->type == WORD || temp->type == VAR))
+	{
+		if (temp->type == VAR && temp->join == true)
+		{
+			while (temp->type == VAR && temp->join == true)
+				temp = temp->next;
+			i++;
+		}
+		else
+		{
+			i++;
+			temp = temp->next;
+		}
+	}
+	return (i);
+}
 
 char	**copy_in_new_tab(int len, char **new_tab,
     t_command *last_cmd, t_token *tmp)
@@ -63,41 +105,3 @@ void	remove_empty_var_args(t_token **tokens)
 	}
 }
 
-int	count_args(t_token *temp)
-{
-	int	i;
-
-	i = 0;
-	while (temp && (temp->type == WORD || temp->type == VAR))
-	{
-		if (temp->type == VAR && temp->join == true)
-		{
-			while (temp->type == VAR && temp->join == true)
-				temp = temp->next;
-			i++;
-		}
-		else
-		{
-			i++;
-			temp = temp->next;
-		}
-	}
-	return (i);
-}
-
-char	*join_vars(t_token **token_node)
-{
-	t_token	*temp;
-	char	*str;
-
-	temp = *token_node;
-	str = ft_strdup(temp->str);
-	while (temp->type == VAR && temp->next->type == VAR
-		&& temp->next->join == true)
-	{
-		str = ft_strjoin(str, temp->next->str);
-		temp = temp->next;
-	}
-	*token_node = temp;
-	return (str);
-}

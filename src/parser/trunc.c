@@ -6,18 +6,37 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 23:48:02 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/04/24 19:26:28 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/01 00:17:17 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/structs.h"
-#include "../includes/env.h"
-#include "../includes/bultins.h"
-#include "../includes/minishell.h"
-#include "../includes/execution.h"
-#include "../includes/parser.h"
-#include "../includes/rediction.h"
-#include "../libft/libft.h"
+#include <errno.h>
+#include "../../includes/lexer.h"
+#include "../../includes/signals.h"
+#include "../../includes/expancion.h"
+#include "../../includes/clean_and_exit.h"
+#include "../../includes/env.h"
+#include "../../includes/structs.h"
+#include "../../includes/bultins.h"
+#include "../../includes/minishell.h"
+#include "../../includes/execution.h"
+#include "../../includes/parser.h"
+#include "../../includes/redirection.h"
+#include "../../libft/libft.h"
+
+char	*get_relative_path(char *file_to_open)
+{
+	char	*path;
+	char	*ret;
+
+	if (file_to_open[0] == '/')
+		return (ft_strdup(file_to_open));
+	path = ft_strdup("./");
+	ret = ft_strjoin(path, file_to_open);
+	printf("PARSING - Get_rel_path function return : %s\n", ret);
+	return (ret);
+}
+
 static void	open_outfile_trunc(t_io_fds *io, char *file, char *var_filename)
 {
 	if (!remove_old_file_ref(io, false))
@@ -47,17 +66,4 @@ void	parse_trunc(t_command **last_cmd, t_token **token_lst)
 	else
 		temp = temp->next;
 	*token_lst = temp;
-}
-
-char	*get_relative_path(char *file_to_open)
-{
-	char	*path;
-	char	*ret;
-
-	if (file_to_open[0] == '/')
-		return (ft_strdup(file_to_open));
-	path = ft_strdup("./");
-	ret = ft_strjoin(path, file_to_open);
-	printf("PARSING - Get_rel_path function return : %s\n", ret);
-	return (ret);
 }
