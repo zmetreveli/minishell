@@ -6,7 +6,7 @@
 #    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/07/04 21:54:42 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/07/04 22:51:08 by jbusom-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,10 @@ OBJ = $(SRC:.c=.o)
 LIBFT_DIR = ../minishell/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-all: $(NAME)
+all: make_lib $(NAME)
+
+make_lib:
+	@make -s -C $(LIBFT_DIR)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
