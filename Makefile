@@ -6,7 +6,7 @@
 #    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/07/01 02:46:44 by zmetreve         ###   ########.fr        #
+#    Updated: 2025/07/04 21:54:42 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC = src/minishell.c \
 	  src/builtins/env.c \
 	  src/builtins/exit.c \
 	  src/builtins/export.c \
+	  src/builtins/export_utils.c \
 	  src/builtins/pwd.c \
 	  src/builtins/unset.c \
 	  src/clean_and_exit/exit.c \

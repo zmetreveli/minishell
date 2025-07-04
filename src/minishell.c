@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/07/04 02:18:36 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/04 22:11:35 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void get_time_prompt(char *buffer, size_t size, t_data *data)
     char *color;
 
     if (local->tm_hour < 12)
-        color = "\033[1;32m"; // verde
+        color = "\033[1;32m";
     else
-        color = "\033[1;33m"; // amarillo
+        color = "\033[1;33m";
 
-    getcwd(cwd, sizeof(cwd)); // obtiene el directorio actual
+    getcwd(cwd, sizeof(cwd));
 
     snprintf(buffer, size,
         "\001%s\002[%s@%s %02d:%02d:%02d] ➜ \001\033[0m\002 ",
@@ -56,28 +56,6 @@ void get_time_prompt(char *buffer, size_t size, t_data *data)
         user ? user : "unknown",
         cwd,
         local->tm_hour, local->tm_min, local->tm_sec);
-}
-
-
-void	init_shlvl(t_data *data)
-{
-	char	*shlvl_str;
-	int		shlvl;
-	char	*new_shlvl_str;
-
-	shlvl_str = get_env_var_value(data->env, "SHLVL");
-	if (shlvl_str)
-	{
-		shlvl = ft_atoi(shlvl_str);
-		shlvl++;
-		new_shlvl_str = ft_itoa(shlvl);
-		set_env_var(data, "SHLVL", new_shlvl_str);
-		free(new_shlvl_str);
-	}
-	else
-	{
-		set_env_var(data, "SHLVL", "1");
-	}
 }
 
 
@@ -125,22 +103,6 @@ void	minishell_noninteractive(t_data *data, char *arg)
 }
 
 //todo/  Modo interactivo: loop que pide input y ejecuta comandos
-/*
-void	minishell_interactive(t_data *data)
-{
-	while (1)
-	{
-		set_signals_interactive();
-		data->user_input = readline(PROMPT);
-		set_signals_noninteractive();
-		if (parse_user_input(data) == true)
-			g_last_exit_code = execute(data);
-		else
-			g_last_exit_code = 1;
-		free_data(data, false);
-	}
-}
-*/
 
 void	minishell_interactive(t_data *data)
 {
