@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:15:44 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/22 00:08:22 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/06 01:06:25 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 // 🟢 Forward declaration de t_token
 typedef struct s_token
-{	
+{
 	char			*str;
 	char			*str_backup;
 	bool			var_exists;
@@ -55,7 +55,8 @@ typedef struct s_command
 	struct s_command	*prev;
 }	t_command;
 
-enum e_token_types {
+enum e_token_types
+{
 	SPACES = 1,
 	WORD,
 	VAR,
@@ -80,7 +81,8 @@ typedef struct s_data
 	pid_t		pid;
 }	t_data;
 
-enum e_quoting_status {
+enum e_quoting_status
+{
 	DEFAULT,
 	SQUOTE,
 	DQUOTE
