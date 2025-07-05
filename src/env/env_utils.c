@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 12:31:55 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/18 23:20:29 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:29:35 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
 
-
 //! Realoca memoria para la variable global g_env_vars.
-//?	Devuelve un puntero a las nuevas variables de entorno o NULL en caso de error de asignación de memoria.
+//?	Devuelve un puntero a las nuevas variables de entorno
+//  o NULL en caso de error de asignación de memoria.
 
 static char	**realloc_env_vars(t_data *data, int size)
 {
@@ -44,8 +44,9 @@ static char	**realloc_env_vars(t_data *data, int size)
 	return (new_env);
 }
 
-//!	Agrega una variable de entorno con la clave dada correspondiente al valor dado. Si la clave ya existe en las variables de entorno, el valor será sobrescrito. Si no, se crea una nueva entrada.
-//* export
+/*	Agrega una variable de entorno con la clave dada correspondiente
+    al valor dado. Si la clave ya existe en las variables de entorno, 
+	el valor será sobrescrito. Si no, se crea una nueva entrada. */
 //?	Devuelve 1 si la operación fue exitosa, o 0 en caso de error.
 
 bool	set_env_var(t_data *data, char *key, char *value)
@@ -76,9 +77,11 @@ bool	set_env_var(t_data *data, char *key, char *value)
 	return (true);
 }
 
-//! Elimina la variable de entorno en la posición indicada del array env Desplaza el resto de las variables una posición hacia atrás y realoca memoria.
-//* unset
-//?	Devuelve true si tuvo éxito, o false si el índice es inválido o falla la reasignación de memoria.
+/* Elimina la variable de entorno en la posición indicada del array
+   env Desplaza el resto de las variables una posición
+    hacia atrás y realoca memoria. */
+/*	Devuelve true si tuvo éxito, o false si el índice
+   es inválido o falla la reasignación de memoria. */
 
 bool	remove_env_var(t_data *data, int idx)
 {

@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 23:21:12 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/01 00:05:05 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:55:37 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,27 +62,27 @@ int	count_args(t_token *temp)
 }
 
 char	**copy_in_new_tab(int len, char **new_tab,
-    t_command *last_cmd, t_token *tmp)
+	t_command *last_cmd, t_token *tmp)
 {
-int	i;
+	int	i;
 
-i = 0;
-while (i < len)
-{
-new_tab[i] = last_cmd->args[i];
-i++;
-}
-while (tmp->type == WORD || tmp->type == VAR)
-{
-if (tmp->join == true)
-    new_tab[i] = join_vars(&tmp);
-else
-    new_tab[i] = ft_strdup(tmp->str);
-i++;
-tmp = tmp->next;
-}
-new_tab[i] = NULL;
-return (new_tab);
+	i = 0;
+	while (i < len)
+	{
+		new_tab[i] = last_cmd->args[i];
+		i++;
+	}
+	while (tmp->type == WORD || tmp->type == VAR)
+	{
+		if (tmp->join == true)
+			new_tab[i] = join_vars(&tmp);
+		else
+			new_tab[i] = ft_strdup(tmp->str);
+		i++;
+		tmp = tmp->next;
+	}
+	new_tab[i] = NULL;
+	return (new_tab);
 }
 
 void	remove_empty_var_args(t_token **tokens)
@@ -104,4 +104,3 @@ void	remove_empty_var_args(t_token **tokens)
 			temp = temp->next;
 	}
 }
-

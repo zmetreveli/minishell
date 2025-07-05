@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:26:08 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/04 22:20:34 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/06 00:19:41 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ bool	restore_io(t_io_fds *io)
 	return (ret);
 }
 
-
 bool	redirect_io(t_io_fds *io)
 {
 	int	ret;
@@ -73,7 +72,6 @@ bool	redirect_io(t_io_fds *io)
 	}
 	return (ret);
 }
-
 
 bool	check_infile_outfile(t_io_fds *io)
 {

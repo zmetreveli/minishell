@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 21:01:47 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/20 00:22:12 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:57:05 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ static void	prep_no_arg_commands(t_data *data)
 }
 
 //! Transforma la lista de tokens en una lista de comandos.
-//? si entendi bien, convierte lo que escribió el usuario en estructuras que se pueden ejecutar.
+/* si entendi bien, convierte lo que escribió el
+   usuario en estructuras que se pueden ejecutar. */
 
 void	create_commands(t_data *data, t_token *token)
 {

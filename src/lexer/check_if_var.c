@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 22:28:37 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/25 22:29:17 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:44:47 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	variable_check(t_token **token_node)
 	while ((*token_node)->str[i])
 	{
 		if ((*token_node)->str[i] == '$')
-		{	
+		{
 			if ((*token_node)->prev && (*token_node)->prev->type == HEREDOC)
 				break ;
 			(*token_node)->type = VAR;

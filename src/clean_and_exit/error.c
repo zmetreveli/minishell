@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 22:59:37 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/22 19:25:23 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:21:34 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,11 @@ static bool	add_detail_quotes(char *command)
 	return (false);
 }
 
-
 int	errmsg_cmd(char *command, char *detail, char *error_message, int error_nb)
 {
 	char	*msg;
 	bool	detail_quotes;
-	
+
 	detail_quotes = add_detail_quotes(command);
 	msg = ft_strdup("minishell: ");
 	if (command != NULL)
@@ -62,10 +61,10 @@ int	errmsg_cmd(char *command, char *detail, char *error_message, int error_nb)
 	if (detail != NULL)
 	{
 		if (detail_quotes)
-		msg = join_strs(msg, "`");
+			msg = join_strs(msg, "`");
 		msg = join_strs(msg, detail);
 		if (detail_quotes)
-		msg = join_strs(msg, "'");
+			msg = join_strs(msg, "'");
 		msg = join_strs(msg, ": ");
 	}
 	msg = join_strs(msg, error_message);

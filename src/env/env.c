@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 11:27:53 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/04 22:11:48 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:35:56 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,22 @@
 //! Cuenta cuántas variables de entorno originales hay.
 //?	Devuelve el número de variables de entorno.
 
-int env_var_count(char **env)
+int	env_var_count(char **env)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (env && env[i])
-        i++;
-    return (i);
+	i = 0;
+	while (env && env[i])
+		i++;
+	return (i);
 }
 
-//!	Busca una coincidencia exacta del nombre de una variable en el array de entorno (env).
-//  PATH
-//*	La búsqueda compara la cadena "<var>=" con el inicio de cada entrada del entorno.
+/*Busca una coincidencia exacta del nombre de 
+	una variable en el array de entorno (env)*/
+/*	La búsqueda compara la cadena "<var>="
+	 con el inicio de cada entrada del entorno.*/
 //?	Devuelve el índice de la coincidencia, o -1 si no se encuentra.
- 
+
 int	get_env_var_index(char **env, char *var)
 {
 	int		i;
@@ -61,8 +62,10 @@ int	get_env_var_index(char **env, char *var)
 	return (-1);
 }
 
-//!	Busca una coincidencia exacta del nombre de una variable en el array de entorno.
-//*	Si la encuentra, devuelve un puntero a la parte del valor (lo que está después del '=').
+/*	Busca una coincidencia exacta del nombre de
+	una variable en el array de entorno. */
+/*	Si la encuentra, devuelve un puntero a 
+	la parte del valor (lo que está después del '='). */
 //! uso para echo $HOME
 //?	Devuelve NULL si no encuentra la variable.
 
@@ -90,7 +93,8 @@ char	*get_env_var_value(char **env, char *var)
 
 //!	Verifica si key es un nombre válido para una variable de entorno.
 //* es antes de anadir una variable de entorno.
-//?	Devuelve true si key contiene solo caracteres alfanuméricos o '_', o false si no.
+/*	Devuelve true si key contiene solo
+	 caracteres alfanuméricos o '_', o false si no. */
 
 bool	is_valid_env_var_key(char *var)
 {
@@ -108,9 +112,6 @@ bool	is_valid_env_var_key(char *var)
 	}
 	return (true);
 }
-
-
-
 
 void	init_shlvl(t_data *data)
 {
