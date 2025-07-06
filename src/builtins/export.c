@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:35:20 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/04 21:53:31 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/06 13:08:26 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@
 #include "../../includes/parser.h"
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
-
-//!	Separa el argumento dado en una pareja clave-valor usando el carácter '='.
-//*	Se utiliza para definir una variable de entorno.
-//*	Devuelve un arreglo de 2 strings: la clave y el valor.
-//*	El arreglo termina en NULL.
-
 
 //?	Devuelve NULL en caso de error de asignación de memoria o entrada inválida.
 
@@ -56,7 +50,10 @@ int	export_builtin(t_data *data, char **args)
 	ret = EXIT_SUCCESS;
 	i = 1;
 	if (!args[i])
-		return (env_builtin(data, NULL));
+	{
+		print_export(data->env);
+		return (ret);
+	}
 	while (args[i])
 	{
 		if (!is_valid_env_var_key(args[i]))
@@ -69,10 +66,6 @@ int	export_builtin(t_data *data, char **args)
 			tmp = get_key_value_pair(args[i]);
 			set_env_var(data, tmp[0], tmp[1]);
 			free_str_tab(tmp);
-		}
-		else
-		{
-			set_env_var(data, args[i], "");
 		}
 		i++;
 	}

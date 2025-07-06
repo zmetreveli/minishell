@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 21:51:42 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/04 21:53:25 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/06 13:05:52 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,3 +128,4 @@ void print_export(char **envp)
     }
 	free_2d_array(envp_copy);
 }
+
