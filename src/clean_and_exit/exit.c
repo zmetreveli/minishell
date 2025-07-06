@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:12:33 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/22 01:20:41 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:22:09 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 #include "../../includes/parser.h"
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
-
 
 void	exit_shell(t_data *data, int exno)
 {

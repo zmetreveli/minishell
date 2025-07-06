@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 23:14:05 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/20 00:12:16 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:51:01 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 //! Esta función gestiona el caso específico cuando el comando es "echo":
 //*  Reserva memoria para el array de argumentos usando la función count_args.
 //   Recorre la lista de tokens mientras sean de tipo VAR o WORD:
-//  Si el token tiene "join = true", junta todos los tokens consecutivos de tipo VAR con join = true.
+/*  Si el token tiene "join = true", junta todos los
+	 tokens consecutivos de tipo VAR con join = true. */
 //? Si "join = false", simplemente duplica el string del token en args[i].
 
 int	create_args_echo_mode(t_token **token_node, t_command *last_cmd)

@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:34:31 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/18 22:47:16 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 00:07:29 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
 
-//! Actualiza las variables PWD y OLDPWD en el entorno después de un cambio de directorio.
-//* Se guarda una copia de las rutas internamente para usarlas en caso de que
-//? las variables de entorno hayan sido eliminadas.
+//Actualiza las variables PWD y OLDPWD en el entorno
+//   después de un cambio de directorio.
+//Se guarda una copia de las rutas internamente para usarlas en caso de que
+//   las variables de entorno hayan sido eliminadas.
 
 static void	update_wds(t_data *data, char *wd)
 {
@@ -42,9 +43,9 @@ static void	update_wds(t_data *data, char *wd)
 	free_ptr(wd);
 }
 
-//todo / si falla la ruta o se borra devolvemos mensaje msads claro "como en bash"
+//si falla la ruta o se borra devolvemos mensaje msads claro "como en bash"
 
-static bool chdir_errno_mod(char *path)
+static bool	chdir_errno_mod(char *path)
 {
 	if (errno == ESTALE)
 		errno = ENOENT;
@@ -54,7 +55,7 @@ static bool chdir_errno_mod(char *path)
 
 //todo / cambio directoryo y acualiso pwd con la nueva direccion
 
-static bool change_dir(t_data *data, char *path)
+static bool	change_dir(t_data *data, char *path)
 {
 	char	*tmp;
 	char	*ret;
@@ -66,7 +67,7 @@ static bool change_dir(t_data *data, char *path)
 	ret = getcwd(cwd, PATH_MAX);
 	if (!ret)
 	{
-		errmsg_cmd("cd: error retriving current directory", 
+		errmsg_cmd("cd: error retriving current directory",
 			"getcwd: cannot access parent directories",
 			strerror(errno), errno);
 		ret = ft_strjoin(data->working_dir, "/");

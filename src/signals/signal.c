@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 00:58:09 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/25 23:35:43 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/06 00:20:38 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #include "../../libft/libft.h"
 
 void	ignore_sigquit(void);
+
 void	signal_reset_prompt(int signo)
 {
 	(void)signo;

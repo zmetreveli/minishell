@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 19:12:17 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/28 19:13:15 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:41:32 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 #include "../../includes/parser.h"
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
-
 
 static void	change_status_to_quote(t_token **token_node, int *i)
 {

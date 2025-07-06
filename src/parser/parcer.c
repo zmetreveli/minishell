@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:32:29 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/01 00:23:34 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/06 00:08:28 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
 
-//! Inicializo todos los campos de la estructura t_command a valores por defecto.
+/* Inicializo todos los campos de la estructura 
+	t_command a valores por defecto. */
 static void	initialize_cmd(t_command **cmd)
 {
 	(*cmd)->command = NULL;

@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 22:39:47 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/28 19:07:08 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:41:06 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,3 @@ int	handle_quotes(t_data *data)
 	}
 	return (0);
 }
-

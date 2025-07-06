@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:34:59 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/18 20:57:24 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 00:10:56 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
 
-
-//todo/  verifico si tengo flag -n o alguna combinacion posible valido si NO devuelvo false 
+//verifico si tengo flag -n o alguna combinacion posible valido
 
 static bool	is_n_flag(char *arg)
 {
@@ -39,11 +38,10 @@ static bool	is_n_flag(char *arg)
 	return (n_flag);
 }
 
+//Imprime los argumentos dados en STDOUT, separados por espacios.
+//Si el flag -n no está activado (n_flag == false), imprime un 
+// salto de línea al final Comienza a imprimir desde el índice i.
 
-//! Imprime los argumentos dados en STDOUT, separados por espacios.
-//* Si el flag -n no está activado (n_flag == false), imprime un salto de línea al final.
-//? Comienza a imprimir desde el índice i.
- 
 static void	echo_print_args(char **args, bool n_flag, int i)
 {
 	if (!args[i])
@@ -63,7 +61,7 @@ static void	echo_print_args(char **args, bool n_flag, int i)
 	}
 }
 
-//todo / imprimo la cadena con o sin el salto de linea dependiendo de is_N_flag 
+//imprimo la cadena con o sin el salto de linea dependiendo de is_N_flag 
 
 int	echo_builtin(t_data *data, char **args)
 {

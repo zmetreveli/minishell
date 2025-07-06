@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 23:45:39 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/28 21:27:27 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:43:04 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ int	replace_var(t_token **token_node, char *var_value, int index)
 	free_ptr(var_value);
 	return (0);
 }
-
 
 char	*replace_str_heredoc(char *str, char *var_value, int index)
 {

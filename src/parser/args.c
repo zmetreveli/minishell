@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 23:00:56 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/01 23:35:13 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:50:01 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	create_args_default_mode(t_token **token_node, t_command *last_cmd)
 	return (SUCCESS);
 }
 
-
 static char	**copy_default_in_new_tab(
 	int len, char **new_tab, t_command *last_cmd, t_token **tk_node)
 {
@@ -86,7 +85,8 @@ static char	**copy_default_in_new_tab(
 }
 
 //! Añade nuevos argumentos a un comando que ya tiene algunos.
-//? Cuenta cuántos nuevos hay, crea un array más grande, copia los antiguos y los nuevos.
+/* Cuenta cuántos nuevos hay, crea un array más grande, 
+	copia los antiguos y los nuevos. */
 
 int	add_args_default_mode(t_token **token_node, t_command *last_cmd)
 {

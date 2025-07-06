@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:31:14 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/22 23:10:38 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:37:03 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static int	get_children(t_data *data)
 		status = save_status;
 	return (status);
 }
+
 static int	create_children(t_data *data)
 {
 	t_command	*cmd;

@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/07/04 22:11:35 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/06 00:45:42 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 #include "../includes/parser.h"
 #include "../includes/redirection.h"
 #include "../libft/libft.h"
-
 #include <time.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -34,33 +33,35 @@
 
 int		g_last_exit_code = 0;
 
-
-void get_time_prompt(char *buffer, size_t size, t_data *data)
+void	get_time_prompt(char *buffer, size_t size, t_data *data)
 {
-    time_t now = time(NULL);
-    struct tm *local = localtime(&now);
-    char *user = get_env_var_value(data->env, "USER");
-    char cwd[256];
-    char *color;
+	time_t		now;
+	struct tm	*local;
+	char		*user;
+	char		cwd[256];
+	char		*color;
 
-    if (local->tm_hour < 12)
-        color = "\033[1;32m";
-    else
-        color = "\033[1;33m";
-
-    getcwd(cwd, sizeof(cwd));
-
-    snprintf(buffer, size,
-        "\001%s\002[%s@%s %02d:%02d:%02d] ➜ \001\033[0m\002 ",
-        color,
-        user ? user : "unknown",
-        cwd,
-        local->tm_hour, local->tm_min, local->tm_sec);
+	now = time(NULL);
+	local = localtime(&now);
+	user = get_env_var_value(data->env, "USER");
+	if (local->tm_hour < 12)
+		color = "\033[1;32m";
+	else
+		color = "\033[1;33m";
+	getcwd(cwd, sizeof(cwd));
+	if (user)
+		snprintf(buffer, size,
+			"\001%s\002[%s@%s %02d:%02d:%02d] ➜ \001\033[0m\002 ",
+			color, user, cwd,
+			local->tm_hour, local->tm_min, local->tm_sec);
+	else
+		snprintf(buffer, size,
+			"\001%s\002[%s@%s %02d:%02d:%02d] ➜ \001\033[0m\002 ",
+			color, "unknown", cwd,
+			local->tm_hour, local->tm_min, local->tm_sec);
 }
 
-
-
-//todo/  Comprueba los argumentos de inicio (./minishell o ./minishell -c "comando")
+//Comprueba los argumentos de inicio (./minishell o ./minishell -c "comando")
 static bool	start_check(t_data *data, int ac, char **av)
 {
 	if (ac != 1 && ac != 3)
@@ -78,7 +79,7 @@ static bool	start_check(t_data *data, int ac, char **av)
 	return (true);
 }
 
-//todo/  Modo no interactivo: ejecuta comandos dados por argumento (separados por ';')
+//Modo no interactivo: ejecuta comandos dados por argumento (separados por ';')
 
 void	minishell_noninteractive(t_data *data, char *arg)
 {
@@ -106,7 +107,7 @@ void	minishell_noninteractive(t_data *data, char *arg)
 
 void	minishell_interactive(t_data *data)
 {
-	char prompt[256];
+	char	prompt[256];
 
 	while (1)
 	{
@@ -121,8 +122,6 @@ void	minishell_interactive(t_data *data)
 		free_data(data, false);
 	}
 }
-
-
 
 int	main(int ac, char **av, char **env)
 {

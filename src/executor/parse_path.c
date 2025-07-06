@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:25:39 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/28 18:26:49 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:39:12 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ static char	*find_valid_cmd_path(char *cmd, char **paths)
 	}
 	return (NULL);
 }
-
 
 static char	**get_paths_from_env(t_data *data)
 {

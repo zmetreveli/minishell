@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:25:11 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/18 22:49:24 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 00:22:55 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@
 #include "../../includes/redirection.h"
 #include "../../libft/libft.h"
 
-
 //todo/ Has to print every env until last NULL
-//todo/ To add a new ENV copy ENV and put it in own ENV and then proceed to add the next ENV var
-//todo/ For shell vars, same concept, if export finds a var in shell vars, then delete that one and move it into ENV var...
+//todo/ To add a new ENV copy ENV and put it in 
+//			own ENV and then proceed to add the next ENV var
+//todo/ For shell vars, same concept, if export finds a var in shell vars, 
+//			then delete that one and move it into ENV var...
 
 int	env_builtin(t_data *data, char **args)
 {

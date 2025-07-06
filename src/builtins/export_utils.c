@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 21:51:42 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/04 21:53:25 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/04 23:52:20 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 int	count_rows(char **src)
 {
 	int	i;
-	
+
 	i = 0;
 	while (src[i])
 		i++;
@@ -72,7 +72,7 @@ void	free_2d_array(char **arr)
 	free(arr);
 }
 
-void bubbleSort(char **arr, int n)
+void	bubbleSort(char **arr, int n)
 {
 	int		i;
 	int		j;
@@ -98,12 +98,12 @@ void bubbleSort(char **arr, int n)
 			j++;
 		}
 		if (!swapped)
-			break;
+			break ;
 		i++;
 	}
 }
 
-void print_export(char **envp)
+void	print_export(char **envp)
 {
 	int		i;
 	int		size;
@@ -115,16 +115,16 @@ void print_export(char **envp)
 	envp_copy = copy_2d_arr(envp);
 	size = count_rows(envp);
 	bubbleSort(envp_copy, size);
-    while(envp_copy[i])
+	while (envp_copy[i])
 	{
-        equals = strchr(envp_copy[i], '=');
-        if (equals)
+		equals = strchr(envp_copy[i], '=');
+		if (equals)
 		{
-            *equals = '\0';
-            printf("declare -x %s=\"%s\"\n", envp_copy[i], equals + 1);
-            *equals = '=';
-        }
- 		i++;
-    }
+			*equals = '\0';
+			printf("declare -x %s=\"%s\"\n", envp_copy[i], equals + 1);
+			*equals = '=';
+		}
+		i++;
+	}
 	free_2d_array(envp_copy);
 }

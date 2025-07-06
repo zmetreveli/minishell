@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 00:08:11 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/21 23:36:39 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:46:31 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,15 @@ void	lst_add_back_token(t_token **alst, t_token *new_node)
 	}
 }
 
-
 void	lstdelone_token(t_token *lst, void (*del)(void *))
 {
 	if (del && lst && lst->str)
-	{	
+	{
 		(*del)(lst->str);
 		lst->str = NULL;
 	}
 	if (del && lst && lst->str_backup)
-	{	
+	{
 		(*del)(lst->str_backup);
 		lst->str_backup = NULL;
 	}

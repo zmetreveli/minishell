@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 11:10:33 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/06/28 23:47:42 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/06 01:23:40 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			count_args(t_token *temp);
 char		**copy_in_new_tab(int len, char **new_tab,
 				t_command *last_cmd, t_token *tmp);
 void		remove_empty_var_args(t_token **tokens);
-                
+
 //! args_echo.c
 int			add_args_echo_mode(t_token **token_node, t_command *last_cmd);
 int			create_args_echo_mode(t_token **token_node, t_command *last_cmd);
@@ -38,7 +38,7 @@ bool		fill_heredoc(t_data *data, t_io_fds *io, int fd);
 //* heredoc.c
 void		parse_heredoc(t_data *data, t_command **last_cmd,
 				t_token **token_lst);
-                bool	get_heredoc(t_data *data, t_io_fds *io);
+bool		get_heredoc(t_data *data, t_io_fds *io);
 
 //! parse_command.c
 void		parse_word(t_command **cmd, t_token **token_lst);
