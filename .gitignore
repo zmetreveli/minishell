@@ -1,3 +1,5 @@
 *.swo
 *.swp
 *.o
+libft.a
+minishell
