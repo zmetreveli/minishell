@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 20:14:12 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/06 01:19:35 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/07 12:06:28 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int			env_builtin(t_data *data, char **args);
 int			pwd_builtin(t_data *data, char **args);
 int			echo_builtin(t_data *data, char **args);
 int			export_builtin(t_data *data, char **args);
+void		print_export(char **envp);
 int			unset_builtin(t_data *data, char **args);
 int			cd_builtin(t_data *data, char **args);
 int			exit_builtin(t_data *data, char **args);
