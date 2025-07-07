@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:35:20 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/05 00:24:07 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/07 12:08:43 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ int	export_builtin(t_data *data, char **args)
 	ret = EXIT_SUCCESS;
 	i = 1;
 	if (!args[i])
-		return (env_builtin(data, NULL));
+	{
+		print_export(data->env);
+		return (ret);
+	}
 	while (args[i])
 	{
 		if (!is_valid_env_var_key(args[i]))
