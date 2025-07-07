@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:35:20 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/07 12:08:43 by jbusom-r         ###   ########.fr       */
+/*   Updated: 2025/07/07 12:32:14 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,28 @@ static char	**get_key_value_pair(char *arg)
 //! Agrega o actualiza variables de entorno a partir de los argumentos dados.
 //* Si no se pasa ningún argumento, muestra las variables de entorno actuales.
 
+void	handle_export_arg(t_data *data, char *arg, int *ret)
+{
+	char	**tmp;
+
+	if (!is_valid_env_var_key(arg))
+	{
+		errmsg_cmd("export", arg, "not a valid identifier", false);
+		*ret = EXIT_FAILURE;
+	}
+	else if (ft_strchr(arg, '=') != NULL)
+	{
+		tmp = get_key_value_pair(arg);
+		set_env_var(data, tmp[0], tmp[1]);
+		free_str_tab(tmp);
+	}
+	else
+		set_env_var(data, arg, "");
+}
+
 int	export_builtin(t_data *data, char **args)
 {
 	int		i;
-	char	**tmp;
 	int		ret;
 
 	ret = EXIT_SUCCESS;
@@ -59,21 +77,7 @@ int	export_builtin(t_data *data, char **args)
 	}
 	while (args[i])
 	{
-		if (!is_valid_env_var_key(args[i]))
-		{
-			errmsg_cmd("export", args[i], "not a valid identifier", false);
-			ret = EXIT_FAILURE;
-		}
-		else if (ft_strchr(args[i], '=') != NULL)
-		{
-			tmp = get_key_value_pair(args[i]);
-			set_env_var(data, tmp[0], tmp[1]);
-			free_str_tab(tmp);
-		}
-		else
-		{
-			set_env_var(data, args[i], "");
-		}
+		handle_export_arg(data, args[i], &ret);
 		i++;
 	}
 	return (ret);
