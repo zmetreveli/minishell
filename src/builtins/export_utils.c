@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 21:51:42 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/04 23:52:20 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/07 12:33:34 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	free_2d_array(char **arr)
 	free(arr);
 }
 
-void	bubbleSort(char **arr, int n)
+void	bubble_sort(char **arr, int n)
 {
 	int		i;
 	int		j;
@@ -80,8 +80,6 @@ void	bubbleSort(char **arr, int n)
 	char	*tmp;
 
 	i = 0;
-	j = 0;
-	swapped = 0;
 	while (i < n - 1)
 	{
 		j = 0;
@@ -114,7 +112,7 @@ void	print_export(char **envp)
 	size = 0;
 	envp_copy = copy_2d_arr(envp);
 	size = count_rows(envp);
-	bubbleSort(envp_copy, size);
+	bubble_sort(envp_copy, size);
 	while (envp_copy[i])
 	{
 		equals = strchr(envp_copy[i], '=');
