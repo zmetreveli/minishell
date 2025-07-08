@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 22:25:11 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/05 00:22:55 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/07 23:56:25 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@
 //todo/ For shell vars, same concept, if export finds a var in shell vars, 
 //			then delete that one and move it into ENV var...
 
+
 int	env_builtin(t_data *data, char **args)
 {
 	int	i;
+	char *eq;
 
 	if (args && args[1])
 		return (errmsg_cmd("env", NULL, "Too many arguments", 2));
@@ -36,6 +38,11 @@ int	env_builtin(t_data *data, char **args)
 	if (!data->env)
 		return (EXIT_FAILURE);
 	while (data->env[i])
-		printf("%s\n", data->env[i++]);
+	{
+		eq = strchr(data->env[i], '=');
+		if (eq && *(eq + 1) != '\0')
+			printf("%s\n", data->env[i]);
+		i++;
+	}
 	return (EXIT_SUCCESS);
 }
