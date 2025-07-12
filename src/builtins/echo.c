@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:34:59 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/05 00:10:56 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/12 23:52:50 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "../../includes/execution.h"
 #include "../../includes/parser.h"
 #include "../../includes/redirection.h"
+#include "../../includes/minishell.h" 
 #include "../../libft/libft.h"
 
 //verifico si tengo flag -n o alguna combinacion posible valido
@@ -61,8 +62,7 @@ static void	echo_print_args(char **args, bool n_flag, int i)
 	}
 }
 
-//imprimo la cadena con o sin el salto de linea dependiendo de is_N_flag 
-
+//imprimo la cadena con o sin el salto de linea dependiendo de is_N_flag
 int	echo_builtin(t_data *data, char **args)
 {
 	int		i;
@@ -71,6 +71,12 @@ int	echo_builtin(t_data *data, char **args)
 	(void)data;
 	n_flag = false;
 	i = 1;
+	if (args[i] && ft_strcmp(args[i], "$?") == 0)
+	{
+		ft_putnbr_fd(g_last_exit_code, STDOUT_FILENO);
+		ft_putchar_fd('\n', STDOUT_FILENO);
+		return (EXIT_SUCCESS);
+	}
 	while (args[i] && is_n_flag(args[i]))
 	{
 		n_flag = true;

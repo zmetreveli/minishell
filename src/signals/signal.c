@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 00:58:09 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/06 00:20:38 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/12 23:45:10 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	signal_reset_prompt(int signo)
 {
 	(void)signo;
 	write(1, "\n", 1);
+	g_last_exit_code = 130;
 	rl_on_new_line();
 	rl_replace_line("", 0);
 	rl_redisplay();
