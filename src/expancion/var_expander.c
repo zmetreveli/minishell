@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 19:59:56 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/05 23:43:26 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/14 22:57:12 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include "../../includes/execution.h"
 #include "../../includes/parser.h"
 #include "../../includes/redirection.h"
+#include "../../includes/structs.h"
 #include "../../libft/libft.h"
 
 static void	update_status(t_token **token_node, char c)

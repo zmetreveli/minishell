@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:26:30 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/06 01:00:15 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/14 22:29:00 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,10 @@
 # define FAILURE 1
 
 extern int	g_last_exit_code;
+
+void	get_time_prompt(char *buffer, size_t size, t_data *data);
+void	minishell_noninteractive(t_data *data, char *arg);
+void	minishell_interactive(t_data *data);
+int	main(int ac, char **av, char **env);
 
 #endif

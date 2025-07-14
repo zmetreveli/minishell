@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:15:44 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/06 01:06:25 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/14 22:55:42 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdbool.h>
 # include <sys/types.h>
 
-// 🟢 Forward declaration de t_token
+//! Forward declaration de t_token
 typedef struct s_token
 {
 	char			*str;
@@ -29,7 +29,7 @@ typedef struct s_token
 	struct s_token	*next;
 }	t_token;
 
-// 🟢 Primero define t_io_fds
+//! Primero define t_io_fds
 typedef struct s_io_fds
 {
 	char	*infile;
@@ -42,7 +42,7 @@ typedef struct s_io_fds
 	int		stdout_backup;
 }	t_io_fds;
 
-// 🟢 Ahora puedes usar t_io_fds en t_command
+//! Ahora puedes usar t_io_fds en t_command
 typedef struct s_command
 {
 	char				*command;
@@ -68,7 +68,7 @@ enum e_token_types
 	END
 };
 
-// 🟢 t_data puede usar t_token y t_command sin errores
+//! t_data puede usar t_token y t_command sin errores
 typedef struct s_data
 {
 	bool		interactive;
@@ -85,7 +85,7 @@ enum e_quoting_status
 {
 	DEFAULT,
 	SQUOTE,
-	DQUOTE
+	DQUOTEs
 };
 
 #endif
