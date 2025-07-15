@@ -3,33 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 09:06:27 by zurabmetrev       #+#    #+#             */
-/*   Updated: 2025/07/06 00:45:42 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:10:28 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdbool.h>
-#include "../includes/signals.h"
-#include "../includes/init.h"
-#include "../includes/lexer.h"
-#include "../includes/clean_and_exit.h"
-#include "../includes/minishell.h"
-#include "../includes/structs.h"
-#include "../includes/env.h"
-#include "../includes/bultins.h"
-#include "../includes/minishell.h"
-#include "../includes/execution.h"
-#include "../includes/parser.h"
-#include "../includes/redirection.h"
-#include "../libft/libft.h"
 #include <time.h>
-#include <stdio.h>
 #include <unistd.h>
 #include <string.h>
 #include <readline/readline.h>
+#include "../includes/bultins.h"
+#include "../includes/clean_and_exit.h"
+#include "../includes/env.h"
+#include "../includes/execution.h"
+#include "../includes/expancion.h"
+#include "../includes/init.h"
+#include "../includes/lexer.h"
+#include "../includes/minishell.h"
+#include "../includes/parser.h"
+#include "../includes/redirection.h"
+#include "../includes/signals.h"
+#include "../includes/structs.h"
+#include "../libft/libft.h"
 
 int		g_last_exit_code = 0;
 
@@ -80,7 +79,6 @@ static bool	start_check(t_data *data, int ac, char **av)
 }
 
 //Modo no interactivo: ejecuta comandos dados por argumento (separados por ';')
-
 void	minishell_noninteractive(t_data *data, char *arg)
 {
 	char	**user_inputs;
@@ -104,7 +102,6 @@ void	minishell_noninteractive(t_data *data, char *arg)
 }
 
 //todo/  Modo interactivo: loop que pide input y ejecuta comandos
-
 void	minishell_interactive(t_data *data)
 {
 	char	prompt[256];

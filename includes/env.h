@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:57:21 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/06 01:18:45 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/14 21:57:20 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ char	*get_env_var_value(char **env, char *var);
 int		get_env_var_index(char **env, char *var);
 int		env_var_count(char **env);
 void	init_shlvl(t_data *data);
-void	get_time_prompt(char *buffer, size_t size, t_data *data);
 
 #endif

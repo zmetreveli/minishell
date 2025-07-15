@@ -3,23 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 00:58:09 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/06 00:20:38 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:19:37 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <errno.h>
 #include <signal.h>
+#include <errno.h>
+#include "../../includes/bultins.h"
 #include "../../includes/clean_and_exit.h"
 #include "../../includes/env.h"
-#include "../../includes/structs.h"
-#include "../../includes/bultins.h"
-#include "../../includes/minishell.h"
 #include "../../includes/execution.h"
+#include "../../includes/expancion.h"
+#include "../../includes/init.h"
+#include "../../includes/lexer.h"
+#include "../../includes/minishell.h"
 #include "../../includes/parser.h"
 #include "../../includes/redirection.h"
+#include "../../includes/signals.h"
+#include "../../includes/structs.h"
 #include "../../libft/libft.h"
 
 void	ignore_sigquit(void);
@@ -28,6 +32,7 @@ void	signal_reset_prompt(int signo)
 {
 	(void)signo;
 	write(1, "\n", 1);
+	g_last_exit_code = 130;
 	rl_on_new_line();
 	rl_replace_line("", 0);
 	rl_redisplay();

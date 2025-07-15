@@ -3,21 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   export_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 21:51:42 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/08 22:34:30 by jbusom-r         ###   ########.fr       */
+/*   Updated: 2025/07/15 17:57:40 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <errno.h>
+#include "../../includes/bultins.h"
 #include "../../includes/clean_and_exit.h"
 #include "../../includes/env.h"
-#include "../../includes/structs.h"
-#include "../../includes/bultins.h"
-#include "../../includes/minishell.h"
 #include "../../includes/execution.h"
+#include "../../includes/expancion.h"
+#include "../../includes/init.h"
+#include "../../includes/lexer.h"
+#include "../../includes/minishell.h"
 #include "../../includes/parser.h"
 #include "../../includes/redirection.h"
+#include "../../includes/signals.h"
+#include "../../includes/structs.h"
 #include "../../libft/libft.h"
 
 int	count_rows(char **src)

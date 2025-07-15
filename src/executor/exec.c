@@ -3,25 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 01:31:14 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/05 23:37:03 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:00:12 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
-#include "../../includes/lexer.h"
-#include "../../includes/signals.h"
-#include "../../includes/expancion.h"
+#include "../../includes/bultins.h"
 #include "../../includes/clean_and_exit.h"
 #include "../../includes/env.h"
-#include "../../includes/structs.h"
-#include "../../includes/bultins.h"
-#include "../../includes/minishell.h"
 #include "../../includes/execution.h"
+#include "../../includes/expancion.h"
+#include "../../includes/init.h"
+#include "../../includes/lexer.h"
+#include "../../includes/minishell.h"
 #include "../../includes/parser.h"
 #include "../../includes/redirection.h"
+#include "../../includes/signals.h"
+#include "../../includes/structs.h"
 #include "../../libft/libft.h"
 
 static int	get_children(t_data *data)
