@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:15:44 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/14 22:55:42 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/15 17:46:25 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ enum e_quoting_status
 {
 	DEFAULT,
 	SQUOTE,
-	DQUOTEs
+	DQUOTE
 };
 
 #endif
