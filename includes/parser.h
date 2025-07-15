@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 11:10:33 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/14 22:47:56 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/15 23:16:27 by jbusom-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int			add_args_default_mode(t_token **token_node, t_command *last_cmd);
 int			create_args_default_mode(t_token **token_node, t_command *last_cmd);
 
 //! cleanup
-void	lst_delone_cmd(t_command *lst, void (*del)(void *));
-void	lst_clear_cmd(t_command **lst, void (*del)(void *));
+void		lst_delone_cmd(t_command *lst, void (*del)(void *));
+void		lst_clear_cmd(t_command **lst, void (*del)(void *));
 
 //! commands
 void		create_commands(t_data *data, t_token *token);
@@ -46,7 +46,7 @@ void		parse_heredoc(t_data *data, t_command **last_cmd,
 bool		get_heredoc(t_data *data, t_io_fds *io);
 
 //! parce_word
-void	parse_word(t_command **cmd, t_token **token_lst);
+void		parse_word(t_command **cmd, t_token **token_lst);
 
 //! parcer.c
 t_command	*lst_new_cmd(bool value);
@@ -61,7 +61,7 @@ bool		remove_old_file_ref(t_io_fds *io, bool infile);
 void		parse_input(t_command **last_cmd, t_token **token_lst);
 
 //! pipe
-void	parse_pipe(t_command **cmd, t_token **token_lst);
+void		parse_pipe(t_command **cmd, t_token **token_lst);
 
 //! trunc
 void		parse_trunc(t_command **last_cmd, t_token **token_lst);
