@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   bultins.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:58:56 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/14 21:50:39 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:16:29 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BULTINS_H
 # define BULTINS_H
+
+#include "structs.h"
 
 //! cd
 int	cd_builtin(t_data *data, char **args);

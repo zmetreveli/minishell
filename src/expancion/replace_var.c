@@ -3,25 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   replace_var.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+        */
+/*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 23:45:39 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/05 23:43:04 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:01:26 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
-#include "../../includes/lexer.h"
-#include "../../includes/signals.h"
-#include "../../includes/expancion.h"
+#include "../../includes/bultins.h"
 #include "../../includes/clean_and_exit.h"
 #include "../../includes/env.h"
-#include "../../includes/structs.h"
-#include "../../includes/bultins.h"
-#include "../../includes/minishell.h"
 #include "../../includes/execution.h"
+#include "../../includes/expancion.h"
+#include "../../includes/init.h"
+#include "../../includes/lexer.h"
+#include "../../includes/minishell.h"
 #include "../../includes/parser.h"
 #include "../../includes/redirection.h"
+#include "../../includes/signals.h"
+#include "../../includes/structs.h"
 #include "../../libft/libft.h"
 
 static int	erase_var(t_token **token_node, char *str, int index)

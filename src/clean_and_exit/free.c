@@ -6,7 +6,7 @@
 /*   By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:42:31 by zmetreve          #+#    #+#             */
-/*   Updated: 2025/07/15 17:47:54 by zmetreve         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:19:49 by zmetreve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 #include <errno.h>
 #include <readline/readline.h>
 #include <readline/history.h>
-#include "../../includes/clean_and_exit.h"
-#include "../../includes/lexer.h"
-#include "../../includes/env.h"
-#include "../../includes/structs.h"
 #include "../../includes/bultins.h"
-#include "../../includes/minishell.h"
+#include "../../includes/clean_and_exit.h"
+#include "../../includes/env.h"
 #include "../../includes/execution.h"
+#include "../../includes/expancion.h"
+#include "../../includes/init.h"
+#include "../../includes/lexer.h"
+#include "../../includes/minishell.h"
 #include "../../includes/parser.h"
 #include "../../includes/redirection.h"
+#include "../../includes/signals.h"
+#include "../../includes/structs.h"
 #include "../../libft/libft.h"
 
 void	free_str_tab(char **tab)
