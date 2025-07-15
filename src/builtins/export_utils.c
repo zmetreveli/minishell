@@ -77,7 +77,7 @@ void	free_2d_array(char **arr)
 	free(arr);
 }
 
-void	bubbleSort(char **arr, int n)
+void	bubble_sort(char **arr, int n)
 {
 	int		i;
 	int		j;
@@ -85,8 +85,6 @@ void	bubbleSort(char **arr, int n)
 	char	*tmp;
 
 	i = 0;
-	j = 0;
-	swapped = 0;
 	while (i < n - 1)
 	{
 		j = 0;
@@ -119,23 +117,17 @@ void	print_export(char **envp)
 	size = 0;
 	envp_copy = copy_2d_arr(envp);
 	size = count_rows(envp);
-	bubbleSort(envp_copy, size);
+	bubble_sort(envp_copy, size);
 	while (envp_copy[i])
 	{
 		equals = strchr(envp_copy[i], '=');
 		if (equals)
 		{
+			*equals = '\0';
 			if (*(equals + 1) != '\0')
-			{
-				*equals = '\0';
 				printf("declare -x %s=\"%s\"\n", envp_copy[i], equals + 1);
-			}
 			else
-			{
-				*equals = '\0';
 				printf("declare -x %s\n", envp_copy[i]);
-			}
-			
 			*equals = '=';
 		}
 		i++;
