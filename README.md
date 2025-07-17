@@ -1,7 +1,7 @@
 # 🐚 Minishell
 
 > A tiny yet mighty UNIX shell written in C — built from scratch to mimic Bash-like behavior.  
-> Developed with ❤️ by [@zmetreveli](https://github.com/zmetreveli) & [@jbusom](https://github.com/jbusom) as part of the 42Barcelona resume.
+> Developed with ❤️ by [@zmetreveli](https://github.com/zmetreveli) & [@jbusomm](https://github.com/jbusomm) as part of the 42Barcelona resume.
 
 ---
 
@@ -50,7 +50,7 @@
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/zmetreveli/minishell.git
+git clone git@github.com:zmetreveli/minishell.git
 cd minishell
 make
 ```
@@ -161,7 +161,7 @@ minishell/
 🧑‍💻 Built with passion and late nights by:
 
 - [@zmetreveli](https://github.com/zurabmetreveli)  
-- [@jbusom](https://github.com/jbusom)
+- [@jbusomm](https://github.com/jbusomm)
 
 🧑‍🏫 Developed as part of the [42Barcelona](https://42barcelona.com) project curriculum.
 
