@@ -3,20 +3,29 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zmetreve <zmetreve@student.42barcelona.    +#+  +:+       +#+         #
+#    By: zmetreve <zmetreve@student.42barcelon>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 01:10:05 by zmetreve          #+#    #+#              #
-#    Updated: 2025/07/04 22:51:08 by jbusom-r         ###   ########.fr        #
+#    Updated: 2025/07/18 11:10:32 by zmetreve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 CC = cc
-CFLAGS = -Werror -Wextra -Wall -g
+CFLAGS = -Werror -Wextra -Wall -gdwarf-4 -g
 CPPFLAGS += -I../minishell/libft
-LIBS     += -lreadline
 
+UNAME := $(shell uname)
+
+ifeq ($(UNAME), Darwin)
+	CFLAGS += -I/opt/homebrew/opt/readline/include
+	LDFLAGS += -L/opt/homebrew/opt/readline/lib
+else
+	LDFLAGS +=
+endif
+
+LIBS += -lreadline
 
 SRC = src/minishell.c \
 	  src/builtins/cd.c \
@@ -85,7 +94,7 @@ $(LIBFT):
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(OBJ) $(LIBFT) -o $(NAME) $(LIBS)
+	$(CC) $(OBJ) $(LIBFT) -o $(NAME) $(LDFLAGS) $(LIBS)
 
 clean:
 	rm -f $(OBJ)
